@@ -12,4 +12,7 @@ export const mutations = {
 	loadingState(state, newState: string) {
 		state.loadingState = newState;
 	},
+	loadingProgress(state, newState: number) {
+		state.loadingProgress = newState;
+	},
 } as MutationTree<State>;

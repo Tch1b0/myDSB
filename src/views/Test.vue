@@ -3,17 +3,10 @@
 		<ion-header></ion-header>
 		<ion-title>myDSB</ion-title>
 		<ion-content>
-			<br />
-			<ion-text
-				>Info:
-				{{
-					dsbInfo === undefined
-						? "undefined"
-						: dsbInfo.entries[0].oldSubject
-				}}</ion-text
-			>
-			<br />
-			<ion-text>{{ debugText }}</ion-text>
+			<div v-for="entry of dsbInfo.entries" :key="entry">
+				<ion-text>{{ entry }}</ion-text>
+				<br />
+			</div>
 		</ion-content>
 	</ion-page>
 </template>
@@ -34,17 +27,22 @@ export default defineComponent<Data>({
 	store: store,
 	components: { IonPage, IonContent, IonText, IonTitle, IonHeader },
 	data() {
-		store.dispatch("login", {}).then(() => store.dispatch("update"));
+		store.dispatch("update");
+		console.log(store.state.timeTable);
 
 		return {
 			// dsb: store.state.dsb,
-			dsb: store.state.dsb,
 			dsbInfo: store.state.timeTable,
 			debugText: store.state.loadingState,
 		};
 	},
-	methods: {},
-	watch: {},
+	beforeRouteEnter(_from, _to, next) {
+		if (store.state.dsb === undefined) {
+			next("login");
+		} else {
+			next();
+		}
+	},
 });
 </script>
 

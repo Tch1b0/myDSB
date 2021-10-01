@@ -5,10 +5,11 @@ import { actions } from "./actions";
 import { getters } from "./getters";
 
 export interface State {
-	dsb: Dsbmobile | undefined;
-	timeTable: TimeTable | undefined;
+	dsb?: Dsbmobile;
+	timeTable?: TimeTable;
 
 	loadingState: string;
+	loadingProgress: number;
 }
 
 export default createStore<State>({
@@ -16,6 +17,7 @@ export default createStore<State>({
 		dsb: undefined,
 		timeTable: undefined,
 		loadingState: "done",
+		loadingProgress: 1,
 	},
 	mutations,
 	actions,
