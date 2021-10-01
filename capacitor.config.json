@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "myDSB",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}

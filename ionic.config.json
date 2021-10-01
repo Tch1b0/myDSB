@@ -1,0 +1,8 @@
+{
+  "name": "myDSB",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue",
+  "id": "5eb285b7"
+}
