@@ -18,7 +18,7 @@ export default createStore<State>({
 		dsb: undefined,
 		timeTable: undefined,
 		loadingState: "done",
-		lang: "de",
+		lang: "en",
 	},
 	mutations,
 	actions,
