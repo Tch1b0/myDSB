@@ -9,7 +9,8 @@ export interface State {
 	timeTable?: TimeTable;
 
 	loadingState: string;
-	loadingProgress: number;
+
+	lang: string;
 }
 
 export default createStore<State>({
@@ -17,7 +18,7 @@ export default createStore<State>({
 		dsb: undefined,
 		timeTable: undefined,
 		loadingState: "done",
-		loadingProgress: 1,
+		lang: "de",
 	},
 	mutations,
 	actions,

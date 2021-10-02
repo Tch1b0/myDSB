@@ -28,8 +28,6 @@ export default defineComponent<Data>({
 	components: { IonPage, IonContent, IonText, IonTitle, IonHeader },
 	data() {
 		store.dispatch("update");
-		console.log(store.state.timeTable);
-
 		return {
 			// dsb: store.state.dsb,
 			dsbInfo: store.state.timeTable,

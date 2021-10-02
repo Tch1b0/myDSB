@@ -1,0 +1,8 @@
+{
+	"username": "Username/Id",
+	"password": "Password",
+	"login": "Log in",
+	"credential-error": "Either the Password or the Username are wrong",
+	"unknown-error": "Something went wrong :/",
+	"form-validation-error": "Please make sure to fill out all fields"
+}

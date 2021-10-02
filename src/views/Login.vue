@@ -2,22 +2,25 @@
 	<ion-page>
 		<ion-content>
 			<ion-grid>
+				<ion-row justify-content-center center class="title-parent">
+					<ion-title class="title">myDSB</ion-title>
+				</ion-row>
 				<ion-row justify-content-center center>
 					<ion-col size-xl="5" size-lg="6" size-md="9" size-xs="12">
 						<ion-card style="text-align: center;">
 							<ion-item>
-								<ion-label position="floating"
-									>Username</ion-label
-								>
+								<ion-label position="floating">{{
+									text["username"]
+								}}</ion-label>
 								<ion-input
 									type="text"
 									v-model="username"
 								></ion-input>
 							</ion-item>
 							<ion-item>
-								<ion-label position="floating"
-									>Password</ion-label
-								>
+								<ion-label position="floating">{{
+									text["password"]
+								}}</ion-label>
 								<ion-input
 									type="password"
 									v-model="password"
@@ -25,9 +28,9 @@
 							</ion-item>
 							<br />
 							<ion-item>
-								<ion-button @click="submit" autofocus
-									>Log in</ion-button
-								>
+								<ion-button @click="submit" autofocus>{{
+									text["login"]
+								}}</ion-button>
 							</ion-item>
 						</ion-card>
 					</ion-col>
@@ -37,8 +40,8 @@
 		<ion-footer>
 			<ion-toolbar>
 				<ion-progress-bar
-					:value="loadingProgress"
-					v-if="loadingState === 'loading'"
+					v-show="loadingState === 'loading'"
+					type="indeterminate"
 				></ion-progress-bar>
 			</ion-toolbar>
 		</ion-footer>
@@ -62,17 +65,38 @@ import {
 	IonToolbar,
 	IonProgressBar,
 	toastController,
+	IonTitle,
 } from "@ionic/vue";
 import store from "@/store";
 
-export default defineComponent({
+interface SiteText {
+	username: string;
+	password: string;
+	login: string;
+	"credential-error": string;
+	"unknown-error": string;
+	"form-validation-error": "string";
+}
+
+interface Data {
+	loadingProgress: string;
+	loadingState: string;
+	username: string;
+	password: string;
+	text: SiteText;
+}
+
+export default defineComponent<Data>({
 	store: store,
 	data() {
+		store.dispatch("loadText", "login").then((val) => {
+			this.text = val;
+		});
 		return {
-			loadingProgress: store.state.loadingProgress,
 			loadingState: store.state.loadingState,
 			username: "",
 			password: "",
+			text: {},
 		};
 	},
 	components: {
@@ -86,6 +110,7 @@ export default defineComponent({
 		IonButton,
 		IonItem,
 		IonLabel,
+		IonTitle,
 		IonFooter,
 		IonToolbar,
 		IonProgressBar,
@@ -95,7 +120,7 @@ export default defineComponent({
 			// Validate that all fields do contain at least 1 character
 			if (this.username.length <= 0 || this.password.length <= 0) {
 				const toast = await toastController.create({
-					message: "Please make sure to fill out all fields",
+					message: this.text["form-validation-error"],
 					duration: 3000,
 				});
 
@@ -112,7 +137,7 @@ export default defineComponent({
 						this.$router.push("/");
 					} else {
 						const toast = await toastController.create({
-							message: "Something went wrong :/",
+							message: this.text["unknown-error"],
 							duration: 3000,
 						});
 
@@ -121,7 +146,7 @@ export default defineComponent({
 				})
 				.catch(async () => {
 					const toast = await toastController.create({
-						message: "Wrong Password or Username",
+						message: this.text["credential-error"],
 						duration: 3000,
 					});
 
@@ -131,3 +156,13 @@ export default defineComponent({
 	},
 });
 </script>
+
+<style scoped>
+.title {
+	font-size: xx-large;
+}
+
+.title-parent {
+	text-align: center;
+}
+</style>

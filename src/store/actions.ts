@@ -14,7 +14,6 @@ export const actions = {
 		let dsb: Dsbmobile;
 
 		state.commit("loadingState", "loading");
-		state.commit("loadingProgress", 0.1);
 
 		if (info.token !== undefined) {
 			dsb = new Dsbmobile(
@@ -27,21 +26,17 @@ export const actions = {
 			dsb = new Dsbmobile(info.username, info.password);
 		} else {
 			state.commit("loadingState", "error");
-			state.commit("loadingProgress", 1);
 			return;
 		}
 
-		state.commit("loadingProgress", 0.4);
 		await dsb.fetchToken();
 		if (dsb.token === undefined || dsb.token.length <= 0) {
 			state.commit("loadingState", "error");
 			throw new WrongCredentials();
 		}
-		state.commit("loadingProgress", 0.8);
 
 		state.commit("dsbApi", dsb);
 
-		state.commit("loadingProgress", 1);
 		state.commit("loadingState", "done");
 	},
 
@@ -51,5 +46,13 @@ export const actions = {
 		dsb.getTimetable().then((timeTable) => {
 			state.commit("timeTable", timeTable);
 		});
+	},
+
+	async loadText(state, page: string): Promise<object> {
+		const text = await import(
+			`@/../resources/text/${page}/${state.state.lang}.json`
+		);
+
+		return text;
 	},
 } as ActionTree<State, State>;
