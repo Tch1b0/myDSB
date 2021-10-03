@@ -2,7 +2,7 @@
 	<ion-page>
 		<ion-header></ion-header>
 		<ion-title>myDSB</ion-title>
-		<ion-content>
+		<ion-content v-if="dsbInfo !== undefined">
 			<div v-for="entry of dsbInfo.entries" :key="entry">
 				<ion-text>{{ entry }}</ion-text>
 				<br />
@@ -19,7 +19,7 @@ import { IonPage, IonContent, IonText, IonTitle, IonHeader } from "@ionic/vue";
 
 interface Data {
 	dsb: Dsbmobile;
-	dsbInfo: TimeTable;
+	dsbInfo?: TimeTable;
 	debugText: string;
 }
 
