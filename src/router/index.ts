@@ -4,11 +4,19 @@ import { RouteRecordRaw } from "vue-router";
 const routes: Array<RouteRecordRaw> = [
 	{
 		path: "/",
-		component: () => import("@/views/Test.vue"),
+		redirect: "/home",
 	},
 	{
 		path: "/login",
 		component: () => import("@/views/Login.vue"),
+	},
+	{
+		path: "/home",
+		component: () => import("@/views/Home.vue"),
+	},
+	{
+		path: "/settings",
+		component: () => import("@/views/Home.vue"),
 	},
 ];
 

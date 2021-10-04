@@ -10,20 +10,17 @@ interface DsbLoginInfo {
 
 export const actions = {
 	async login(state, info: DsbLoginInfo) {
-		console.log(info.password);
 		let dsb: Dsbmobile;
 
 		state.commit("loadingState", "loading");
 
+		const apiURL = "https://mydsb.johannespour.de";
+		const resURL = "https://mydsb.johannespour.de/light";
+
 		if (info.token !== undefined) {
-			dsb = new Dsbmobile(
-				"",
-				"",
-				"http://johannespour.de:5010",
-				info.token
-			);
+			dsb = new Dsbmobile("", "", apiURL, resURL, info.token);
 		} else if (info.username !== undefined && info.password !== undefined) {
-			dsb = new Dsbmobile(info.username, info.password);
+			dsb = new Dsbmobile(info.username, info.password, apiURL, resURL);
 		} else {
 			state.commit("loadingState", "error");
 			return;

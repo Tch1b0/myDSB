@@ -6,7 +6,7 @@
 					<ion-title class="title">myDSB</ion-title>
 				</ion-row>
 				<ion-row justify-content-center center>
-					<ion-col size-xl="5" size-lg="6" size-md="9" size-xs="12">
+					<ion-col size-xs="12">
 						<ion-card style="text-align: center;">
 							<ion-item>
 								<ion-label position="floating">{{
@@ -40,7 +40,7 @@
 		<ion-footer>
 			<ion-toolbar>
 				<ion-progress-bar
-					v-show="loadingState === 'loading'"
+					v-show="store.state.loadingState === 'loading'"
 					type="indeterminate"
 				></ion-progress-bar>
 			</ion-toolbar>
@@ -93,7 +93,7 @@ export default defineComponent<Data>({
 			this.text = val;
 		});
 		return {
-			loadingState: store.state.loadingState,
+			store,
 			username: "",
 			password: "",
 			text: {},
@@ -164,5 +164,18 @@ export default defineComponent<Data>({
 
 .title-parent {
 	text-align: center;
+}
+
+ion-button {
+	width: 100%;
+	height: 75%;
+	font-size: 150%;
+}
+
+@media (min-width: 1000px) {
+	ion-button {
+		width: 30%;
+		margin-left: 35%;
+	}
 }
 </style>

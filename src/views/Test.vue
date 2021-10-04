@@ -2,12 +2,20 @@
 	<ion-page>
 		<ion-header></ion-header>
 		<ion-title>myDSB</ion-title>
-		<ion-content v-if="dsbInfo !== undefined">
-			<div v-for="entry of dsbInfo.entries" :key="entry">
+		<ion-content v-if="store.state.timeTable !== undefined">
+			<div v-for="entry of store.state.timeTable.entries" :key="entry">
 				<ion-text>{{ entry }}</ion-text>
 				<br />
 			</div>
 		</ion-content>
+		<ion-footer>
+			<ion-toolbar>
+				<ion-progress-bar
+					v-show="store.state.loadingState === 'loading'"
+					type="indeterminate"
+				></ion-progress-bar>
+			</ion-toolbar>
+		</ion-footer>
 	</ion-page>
 </template>
 
@@ -30,8 +38,7 @@ export default defineComponent<Data>({
 		store.dispatch("update");
 		return {
 			// dsb: store.state.dsb,
-			dsbInfo: store.state.timeTable,
-			debugText: store.state.loadingState,
+			store,
 		};
 	},
 	beforeRouteEnter(_from, _to, next) {

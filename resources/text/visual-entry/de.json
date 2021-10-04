@@ -1,0 +1,3 @@
+{
+	"Vertretung": "Am <span class=\"entry-day\">{{ day }}</span> in der <span class=\"entry-period\">{{ period }}.</span> Stunde in <span class=\"entry-subject\">{{ oldSubject }}</span> findet eine Vertretung statt"
+}
