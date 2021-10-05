@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { Entry } from "dsbmobile/dist/entry";
+import { Entry } from "dsbmobile/dist/timetable/entry";
 import { defineComponent } from "vue";
 import { IonCard, IonCardContent, IonIcon } from "@ionic/vue";
 import { checkmarkDoneCircleOutline as check } from "ionicons/icons";
@@ -28,10 +28,17 @@ export default defineComponent({
 				return "";
 			}
 
-			return text
-				.replace("{{ day }}", this.entry.day)
-				.replace("{{ period }}", this.entry.period.toString())
-				.replace("{{ oldSubject }}", this.entry.longOldSubject);
+			try {
+				return text
+					.replace("{{ day }}", this.entry.day)
+					.replace("{{ period }}", this.entry.period.toString())
+					.replace("{{ oldSubject }}", this.entry.longOldSubject)
+					.replace("{{ newSubject }}", this.entry.longNewSubject)
+					.replace("{{ newRoom }}", this.entry.newRoom)
+					.replace("{{ oldRoom }}", this.entry.oldRoom);
+			} catch {
+				return "Some error occured :/";
+			}
 		},
 	},
 	data() {
