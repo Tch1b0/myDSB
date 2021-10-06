@@ -8,7 +8,9 @@
 				"
 			>
 				<div
-					v-for="entry of store.state.timeTable.entries"
+					v-for="entry of store.state.timeTable.findByClassName(
+						'TGI11/4'
+					)"
 					:key="entry"
 				>
 					<visual-entry :entry="entry"></visual-entry>
@@ -34,13 +36,6 @@ export default defineComponent({
 		return {
 			store,
 		};
-	},
-	beforeRouteEnter(_from, _to, next) {
-		if (store.state.dsb === undefined) {
-			next("login");
-		} else {
-			next();
-		}
 	},
 });
 </script>

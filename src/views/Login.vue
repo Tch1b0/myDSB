@@ -68,6 +68,8 @@ import {
 	IonTitle,
 } from "@ionic/vue";
 import store from "@/store";
+import { Account } from "@/utility/account";
+import { Storage } from "@capacitor/storage";
 
 interface SiteText {
 	username: string;
@@ -88,17 +90,6 @@ interface Data {
 
 export default defineComponent<Data>({
 	store: store,
-	data() {
-		store.dispatch("loadText", "login").then((val) => {
-			this.text = val;
-		});
-		return {
-			store,
-			username: "",
-			password: "",
-			text: {},
-		};
-	},
 	components: {
 		IonPage,
 		IonContent,
@@ -115,8 +106,19 @@ export default defineComponent<Data>({
 		IonToolbar,
 		IonProgressBar,
 	},
+	data() {
+		store.dispatch("loadText", "login").then((val) => {
+			this.text = val;
+		});
+		return {
+			store,
+			username: "",
+			password: "",
+			text: {},
+		};
+	},
 	methods: {
-		async submit() {
+		async submit(): Promise<void> {
 			// Validate that all fields do contain at least 1 character
 			if (this.username.length <= 0 || this.password.length <= 0) {
 				const toast = await toastController.create({
@@ -127,11 +129,11 @@ export default defineComponent<Data>({
 				return toast.present();
 			}
 			// Login
+			const acc = new Account(this.username, this.password);
+			store.commit("account", acc);
+
 			store
-				.dispatch("login", {
-					username: this.username,
-					password: this.password,
-				})
+				.dispatch("login")
 				.then(async () => {
 					if (store.state.loadingState !== "error") {
 						this.$router.push("/");

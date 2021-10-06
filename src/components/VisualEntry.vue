@@ -105,7 +105,8 @@ export default defineComponent({
 	background-color: rgba(224, 224, 77, 0.7);
 }
 
-ion-card {
-	/* width: 50%; */
+entry-day {
+	color: red;
+	font-weight: 200;
 }
 </style>

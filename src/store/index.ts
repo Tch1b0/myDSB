@@ -3,14 +3,15 @@ import { createStore } from "vuex";
 import { mutations } from "./mutations";
 import { actions } from "./actions";
 import { getters } from "./getters";
+import { Account } from "@/utility/account";
+import { Storage } from "@capacitor/storage";
 
 export interface State {
 	dsb?: Dsbmobile;
 	timeTable?: TimeTable;
 
+	account: Account;
 	loadingState: string;
-
-	lang: string;
 }
 
 export default createStore<State>({
@@ -18,7 +19,7 @@ export default createStore<State>({
 		dsb: undefined,
 		timeTable: undefined,
 		loadingState: "done",
-		lang: "de",
+		account: new Account(),
 	},
 	mutations,
 	actions,

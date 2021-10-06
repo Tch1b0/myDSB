@@ -9,18 +9,26 @@ interface DsbLoginInfo {
 }
 
 export const actions = {
-	async login(state, info: DsbLoginInfo) {
+	async login(state) {
+		const account = state.state.account;
 		let dsb: Dsbmobile;
-
 		state.commit("loadingState", "loading");
 
 		const apiURL = "https://mydsb.johannespour.de";
 		const resURL = "https://mydsb.johannespour.de/light";
 
-		if (info.token !== undefined) {
-			dsb = new Dsbmobile("", "", apiURL, resURL, info.token);
-		} else if (info.username !== undefined && info.password !== undefined) {
-			dsb = new Dsbmobile(info.username, info.password, apiURL, resURL);
+		if (account.token !== undefined) {
+			dsb = new Dsbmobile("", "", apiURL, resURL, account.token);
+		} else if (
+			account.username !== undefined &&
+			account.password !== undefined
+		) {
+			dsb = new Dsbmobile(
+				account.username,
+				account.password,
+				apiURL,
+				resURL
+			);
 		} else {
 			state.commit("loadingState", "error");
 			return;
@@ -47,7 +55,7 @@ export const actions = {
 
 	async loadText(state, page: string): Promise<object> {
 		const text = await import(
-			`@/../resources/text/${page}/${state.state.lang}.json`
+			`@/../resources/text/${page}/${state.state.account.settings.lang}.json`
 		);
 
 		return text;
