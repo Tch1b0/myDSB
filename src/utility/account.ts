@@ -24,7 +24,6 @@ export class Account {
 	}
 
 	public static fromJSON(data: any) {
-		console.log(data);
 		return new Account(
 			data["username"],
 			data["password"],

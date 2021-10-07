@@ -4,7 +4,7 @@ import { mutations } from "./mutations";
 import { actions } from "./actions";
 import { getters } from "./getters";
 import { Account } from "@/utility/account";
-import { Storage } from "@capacitor/storage";
+import { Storage } from "@ionic/storage";
 
 export interface State {
 	dsb?: Dsbmobile;
@@ -12,6 +12,7 @@ export interface State {
 
 	account: Account;
 	loadingState: string;
+	storage: Storage;
 }
 
 export default createStore<State>({
@@ -20,6 +21,7 @@ export default createStore<State>({
 		timeTable: undefined,
 		loadingState: "done",
 		account: new Account(),
+		storage: new Storage(),
 	},
 	mutations,
 	actions,

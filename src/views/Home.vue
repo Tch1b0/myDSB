@@ -8,9 +8,7 @@
 				"
 			>
 				<div
-					v-for="entry of store.state.timeTable.findByClassName(
-						'TGI11/4'
-					)"
+					v-for="entry of store.state.timeTable.entries"
 					:key="entry"
 				>
 					<visual-entry :entry="entry"></visual-entry>

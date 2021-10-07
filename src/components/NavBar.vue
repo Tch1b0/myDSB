@@ -1,10 +1,10 @@
 <template>
 	<ion-tabs>
 		<ion-tab-bar>
-			<ion-tab-button tab="home">
+			<ion-tab-button tab="home" @click="redir('home')">
 				<ion-icon :icon="planet"></ion-icon>
 			</ion-tab-button>
-			<ion-tab-button tab="settings">
+			<ion-tab-button tab="settings" @click="redir('settings')">
 				<ion-icon :icon="settings"></ion-icon>
 			</ion-tab-button>
 		</ion-tab-bar>
@@ -20,6 +20,11 @@ export default defineComponent({
 	components: { IonTabBar, IonTabButton, IonIcon, IonTabs },
 	data() {
 		return { planet, settings };
+	},
+	methods: {
+		redir(route: string) {
+			this.$router.push(route);
+		},
 	},
 });
 </script>

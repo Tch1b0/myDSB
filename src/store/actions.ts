@@ -1,6 +1,8 @@
+import router from "@/router";
+import { Account } from "@/utility/account";
 import { Dsbmobile, WrongCredentials } from "dsbmobile";
 import { ActionTree } from "vuex";
-import { State } from ".";
+import store, { State } from ".";
 
 interface DsbLoginInfo {
 	token?: string;
@@ -29,12 +31,12 @@ export const actions = {
 				apiURL,
 				resURL
 			);
+			await dsb.fetchToken();
 		} else {
 			state.commit("loadingState", "error");
 			return;
 		}
 
-		await dsb.fetchToken();
 		if (dsb.token === undefined || dsb.token.length <= 0) {
 			state.commit("loadingState", "error");
 			throw new WrongCredentials();
@@ -43,6 +45,10 @@ export const actions = {
 		state.commit("dsbApi", dsb);
 
 		state.commit("loadingState", "done");
+	},
+	logout(state) {
+		state.commit("account", new Account());
+		router.push("login");
 	},
 
 	async update(state) {

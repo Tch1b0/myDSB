@@ -1,8 +1,8 @@
 import { Account } from "@/utility/account";
-import { Storage } from "@capacitor/storage";
+import { Storage } from "@ionic/storage";
 import { Dsbmobile, TimeTable } from "dsbmobile";
 import { MutationTree } from "vuex";
-import { State } from ".";
+import store, { State } from ".";
 
 export const mutations = {
 	dsbApi(state, dsb: Dsbmobile) {
@@ -23,6 +23,9 @@ export const mutations = {
 			acc.token = state.dsb.token;
 		}
 		state.account = acc;
-		Storage.set({ key: "account", value: JSON.stringify(acc.toJSON) });
+		store.state.storage.set("account", JSON.stringify(acc.toJSON()));
+	},
+	storage(state, storage: Storage) {
+		state.storage = storage;
 	},
 } as MutationTree<State>;

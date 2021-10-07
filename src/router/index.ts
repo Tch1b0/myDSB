@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "@ionic/vue-router";
 import { RouteRecordRaw } from "vue-router";
 import store from "@/store";
-import { Storage } from "@capacitor/storage";
 
 const routes: Array<RouteRecordRaw> = [
 	{
@@ -18,7 +17,7 @@ const routes: Array<RouteRecordRaw> = [
 	},
 	{
 		path: "/settings",
-		component: () => import("@/views/Home.vue"),
+		component: () => import("@/views/Settings.vue"),
 	},
 ];
 

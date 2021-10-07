@@ -69,7 +69,6 @@ import {
 } from "@ionic/vue";
 import store from "@/store";
 import { Account } from "@/utility/account";
-import { Storage } from "@capacitor/storage";
 
 interface SiteText {
 	username: string;
