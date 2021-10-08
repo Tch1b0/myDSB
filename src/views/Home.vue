@@ -14,8 +14,8 @@
 					<visual-entry :entry="entry"></visual-entry>
 				</div>
 			</div>
+			<nav-bar />
 		</ion-content>
-		<nav-bar />
 	</ion-page>
 </template>
 

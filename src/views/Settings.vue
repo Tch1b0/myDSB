@@ -1,7 +1,19 @@
 <template>
 	<ion-page>
 		<ion-content>
-			<ion-button @click="logout">{{ text["logout"] }}</ion-button>
+			<ion-grid>
+				<ion-row justify-content-center center>
+					<ion-col>
+						<ion-card>
+							<ion-item>
+								<ion-button @click="logout">{{
+									text["logout"]
+								}}</ion-button>
+							</ion-item>
+						</ion-card>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
 		</ion-content>
 		<nav-bar />
 	</ion-page>
@@ -10,12 +22,32 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import store from "@/store";
-import { IonPage, IonButton, IonContent } from "@ionic/vue";
+import {
+	IonPage,
+	IonButton,
+	IonContent,
+	IonGrid,
+	IonCol,
+	IonRow,
+	IonCard,
+	IonItem,
+} from "@ionic/vue";
 import NavBar from "@/components/NavBar.vue";
 
 export default defineComponent({
 	store,
-	components: { IonPage, IonButton, IonContent, NavBar },
+	components: {
+		IonPage,
+		IonButton,
+		IonContent,
+		IonGrid,
+		IonCol,
+		IonRow,
+		IonCard,
+		IonItem,
+
+		NavBar,
+	},
 	data() {
 		store.dispatch("loadText", "settings").then((val) => {
 			this.text = val;

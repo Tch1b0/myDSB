@@ -1,5 +1,6 @@
 <template>
 	<ion-tabs>
+		<ion-router-outlet></ion-router-outlet>
 		<ion-tab-bar>
 			<ion-tab-button tab="home" @click="redir('home')">
 				<ion-icon :icon="planet"></ion-icon>
@@ -13,11 +14,17 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { IonTabBar, IonTabButton, IonIcon, IonTabs } from "@ionic/vue";
+import {
+	IonTabBar,
+	IonTabButton,
+	IonIcon,
+	IonTabs,
+	IonRouterOutlet,
+} from "@ionic/vue";
 import { planet, settings } from "ionicons/icons";
 
 export default defineComponent({
-	components: { IonTabBar, IonTabButton, IonIcon, IonTabs },
+	components: { IonTabBar, IonTabButton, IonIcon, IonTabs, IonRouterOutlet },
 	data() {
 		return { planet, settings };
 	},

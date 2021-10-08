@@ -2,7 +2,7 @@ import router from "@/router";
 import { Account } from "@/utility/account";
 import { Dsbmobile, WrongCredentials } from "dsbmobile";
 import { ActionTree } from "vuex";
-import store, { State } from ".";
+import { State } from ".";
 
 interface DsbLoginInfo {
 	token?: string;
