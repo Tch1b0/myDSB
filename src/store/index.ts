@@ -1,4 +1,4 @@
-import { Dsbmobile, TimeTable } from "dsbmobile";
+import Dsbmobile, { TimeTable } from "dsbmobile";
 import { createStore } from "vuex";
 import { mutations } from "./mutations";
 import { actions } from "./actions";

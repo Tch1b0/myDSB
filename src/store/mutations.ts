@@ -1,6 +1,6 @@
 import { Account } from "@/utility/account";
 import { Storage } from "@ionic/storage";
-import { Dsbmobile, TimeTable } from "dsbmobile";
+import Dsbmobile, { TimeTable } from "dsbmobile";
 import { MutationTree } from "vuex";
 import store, { State } from ".";
 

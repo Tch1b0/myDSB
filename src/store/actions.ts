@@ -1,6 +1,6 @@
 import router from "@/router";
 import { Account } from "@/utility/account";
-import { Dsbmobile, WrongCredentials } from "dsbmobile";
+import Dsbmobile, { WrongCredentials } from "dsbmobile";
 import { ActionTree } from "vuex";
 import { State } from ".";
 
