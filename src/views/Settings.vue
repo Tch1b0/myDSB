@@ -14,8 +14,8 @@
 					</ion-col>
 				</ion-row>
 			</ion-grid>
+			<nav-bar />
 		</ion-content>
-		<nav-bar />
 	</ion-page>
 </template>
 
