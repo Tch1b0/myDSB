@@ -32,3 +32,5 @@ npm-debug.log*
 **/android
 **/ios
 keys/
+/cypress/videos
+/cypress/screenshots
