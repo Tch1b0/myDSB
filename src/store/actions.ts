@@ -47,7 +47,7 @@ export const actions = {
 		state.commit("loadingState", "done");
 	},
 	logout(state) {
-		state.commit("account", new Account());
+		state.commit("resetAccount");
 		router.push("login");
 	},
 

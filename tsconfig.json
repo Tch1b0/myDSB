@@ -12,10 +12,11 @@
 		"sourceMap": true,
 		"baseUrl": ".",
 		"resolveJsonModule": true,
-		"types": ["webpack-env", "cypress"],
+		"types": ["webpack-env", "cypress", "node"],
 		"paths": {
 			"@/*": ["src/*"]
 		},
+		"typeRoots": ["./node_modules/@types"],
 		"lib": ["esnext", "dom", "dom.iterable", "scripthost"]
 	},
 	"include": [
