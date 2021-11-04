@@ -25,6 +25,10 @@ export const mutations = {
 		state.account = acc;
 		store.state.storage.set("account", JSON.stringify(acc.toJSON()));
 	},
+	resetAccount(state) {
+		state.account = new Account();
+		store.state.storage.remove("account");
+	},
 	storage(state, storage: Storage) {
 		state.storage = storage;
 	},

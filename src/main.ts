@@ -25,11 +25,14 @@ import "./theme/variables.css";
 
 import store from "./store";
 
+// Create the Main Vue component and tell it to use ionic, the store and the router
 const app = createApp(App)
 	.use(store)
 	.use(IonicVue)
 	.use(router);
 
+// Mount the Main Vue component to the element in the
+// HTML that has the `app` tag when the router is ready
 router.isReady().then(() => {
 	app.mount("#app");
 });
