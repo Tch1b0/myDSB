@@ -57,9 +57,7 @@ export const actions = {
 	async update(state) {
 		const dsb: Dsbmobile = await state.getters.dsb;
 
-		dsb.getTimetable().then((timeTable) => {
-			state.commit("timeTable", timeTable);
-		});
+		state.commit("timeTable", await dsb.getTimetable());
 	},
 
 	async loadText(state, page: string): Promise<object> {

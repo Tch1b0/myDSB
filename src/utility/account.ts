@@ -1,6 +1,7 @@
-interface Settings {
-	notifications: boolean;
+export interface Settings {
+	sendNotifications: boolean;
 	lang: string;
+	className: string;
 }
 
 export class Account {
@@ -9,8 +10,9 @@ export class Account {
 		public password?: string,
 		public token?: string,
 		public settings: Settings = {
-			notifications: true,
+			sendNotifications: true,
 			lang: "en",
+			className: "",
 		}
 	) {}
 

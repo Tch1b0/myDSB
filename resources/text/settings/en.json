@@ -1,3 +1,9 @@
 {
-	"logout": "Log out"
+	"logout": "Log out",
+	"class-name": "Class Name",
+	"send-notifications": "Send Notifications",
+	"lang": "Language",
+	"cancel": "Cancel",
+	"ok": "Ok",
+	"save": "Save"
 }

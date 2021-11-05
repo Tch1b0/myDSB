@@ -1,4 +1,4 @@
-import { Account } from "@/utility/account";
+import { Account, Settings } from "@/utility/account";
 import { Storage } from "@ionic/storage";
 import Dsbmobile, { TimeTable } from "dsbmobile";
 import { MutationTree } from "vuex";
@@ -31,5 +31,12 @@ export const mutations = {
 	},
 	storage(state, storage: Storage) {
 		state.storage = storage;
+	},
+	settings(state, settings: Settings) {
+		state.account.settings = settings;
+		store.state.storage.set(
+			"account",
+			JSON.stringify(state.account.toJSON())
+		);
 	},
 } as MutationTree<State>;

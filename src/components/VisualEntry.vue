@@ -17,29 +17,17 @@ import { IonCard, IonCardContent, IonIcon } from "@ionic/vue";
 import { checkmarkDoneCircleOutline as check } from "ionicons/icons";
 import store from "@/store";
 
+interface Data {
+	color: string;
+	check: string;
+	text: object;
+	store: object;
+}
+
 export default defineComponent({
 	store,
 	props: {
 		entry: Entry,
-	},
-	methods: {
-		formatText(text: string) {
-			if (this.entry === undefined || text === undefined) {
-				return "";
-			}
-
-			try {
-				return text
-					.replace("{{ day }}", this.entry.day)
-					.replace("{{ period }}", this.entry.period.toString())
-					.replace("{{ oldSubject }}", this.entry.longOldSubject)
-					.replace("{{ newSubject }}", this.entry.longNewSubject)
-					.replace("{{ newRoom }}", this.entry.newRoom)
-					.replace("{{ oldRoom }}", this.entry.oldRoom);
-			} catch {
-				return "Some error occured :/";
-			}
-		},
 	},
 	data() {
 		let color: string;
@@ -69,15 +57,41 @@ export default defineComponent({
 			}
 		}
 
-		store.dispatch("loadText", "visual-entry").then((val) => {
-			this.text = val;
-		});
+		this.loadText();
 
 		return {
 			color,
 			check,
 			text: {},
+			store,
 		};
+	},
+	methods: {
+		formatText(text: string) {
+			if (this.entry === undefined || text === undefined) {
+				return "";
+			}
+
+			try {
+				return text
+					.replace("{{ day }}", this.entry.day)
+					.replace("{{ period }}", this.entry.period.toString())
+					.replace("{{ oldSubject }}", this.entry.longOldSubject)
+					.replace("{{ newSubject }}", this.entry.longNewSubject)
+					.replace("{{ newRoom }}", this.entry.newRoom)
+					.replace("{{ oldRoom }}", this.entry.oldRoom);
+			} catch {
+				return "Some error occured :/";
+			}
+		},
+		async loadText() {
+			this.text = await store.dispatch("loadText", "visual-entry");
+		},
+	},
+	watch: {
+		"store.state.account.settings"(_) {
+			this.loadText();
+		},
 	},
 	components: {
 		IonCard,
