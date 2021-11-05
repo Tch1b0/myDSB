@@ -9,7 +9,41 @@ Because it does stuff smartly _for_ you instead of just giving all the informati
 
 **myDSB** is a kind of app that is supposed to actively **present** information to you.
 
-### Built with
+## npm scripts
+
+### Start a local server
+
+```
+$ npm run serve
+```
+
+### Start cypress in a new window
+
+Remember to run the local server parallel
+
+```
+$ npm run test:gui
+```
+
+### Run eslint
+
+```
+$ npm run lint
+```
+
+### Build for android
+
+```
+$ ionic cap build android
+```
+
+### Build for ios
+
+```
+$ ionic cap build ios
+```
+
+## Built with
 
 -   Ionic
 -   Capacitor
