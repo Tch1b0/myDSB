@@ -1,5 +1,4 @@
 import router from "@/router";
-import { Account } from "@/utility/account";
 import Dsbmobile, { WrongCredentials } from "dsbmobile";
 import { ActionTree } from "vuex";
 import { State } from ".";
@@ -20,17 +19,21 @@ export const actions = {
 		const resURL = "https://mydsb.johannespour.de/light";
 
 		if (account.token !== undefined) {
-			dsb = new Dsbmobile("", "", apiURL, resURL, account.token);
+			dsb = new Dsbmobile({
+				baseURL: apiURL,
+				resourceBaseURL: resURL,
+				token: account.token,
+			});
 		} else if (
 			account.username !== undefined &&
 			account.password !== undefined
 		) {
-			dsb = new Dsbmobile(
-				account.username,
-				account.password,
-				apiURL,
-				resURL
-			);
+			dsb = new Dsbmobile({
+				id: account.username,
+				password: account.password,
+				baseURL: apiURL,
+				resourceApiURL: resURL,
+			});
 			await dsb.fetchToken();
 		} else {
 			state.commit("loadingState", "error");
