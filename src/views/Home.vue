@@ -1,7 +1,7 @@
 <template>
 	<ion-page>
 		<ion-content>
-			<ion-refresher @ionRefresh="refresh($event)">
+			<ion-refresher @ionRefresh="refresh($event)" slot="fixed">
 				<ion-refresher-content></ion-refresher-content>
 			</ion-refresher>
 			<div
