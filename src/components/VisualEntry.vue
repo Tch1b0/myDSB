@@ -3,7 +3,13 @@
 		<ion-card-content v-if="text !== undefined">
 			<div
 				v-if="text !== undefined"
-				v-html="formatText(text[entry.type])"
+				v-html="
+					formatText(
+						text[entry.type],
+						text[entry.type + '-alt'],
+						text['lang']
+					)
+				"
 			></div>
 			<ion-icon :icon="check" style="font-size: 20px"></ion-icon>
 		</ion-card-content>
@@ -16,13 +22,6 @@ import { defineComponent } from "vue";
 import { IonCard, IonCardContent, IonIcon } from "@ionic/vue";
 import { checkmarkDoneCircleOutline as check } from "ionicons/icons";
 import store from "@/store";
-
-interface Data {
-	color: string;
-	check: string;
-	text: object;
-	store: object;
-}
 
 export default defineComponent({
 	store,
@@ -58,7 +57,7 @@ export default defineComponent({
 		}
 
 		this.loadText();
-
+		console.log(this.entry);
 		return {
 			color,
 			check,
@@ -67,21 +66,64 @@ export default defineComponent({
 		};
 	},
 	methods: {
-		formatText(text: string) {
+		weekDaysToEnglish(day: string): string {
+			// Create an object with the english translation
+			// For german weekdays
+			const days: Record<string, string> = {
+				Montag: "Monday",
+				Dienstag: "Tuesday",
+				Mittwoch: "Wednesday",
+				Donnerstag: "Thursday",
+				Freitag: "Friday",
+				Samstag: "Saturday",
+				Sonntag: "Sunday",
+			};
+			return days[day];
+		},
+		/**
+		 * Format a VisualEntry text
+		 * @param text The text you want to format
+		 * @param alt The "fallback" text that is used if your original text throws an error
+		 * @param translateToEnglish Wether certain words should be translated into english or not
+		 */
+		formatText(
+			text: string,
+			alt?: string,
+			translateToEnglish = false
+		): string {
 			if (this.entry === undefined || text === undefined) {
 				return "";
 			}
 
+			// Do the default formatting
+			text = text
+				.replace(
+					"{{ day }}",
+					translateToEnglish
+						? this.weekDaysToEnglish(this.entry.day)
+						: this.entry.day
+				)
+				.replace("{{ period }}", this.entry.period.toString())
+				.replace("{{ newRoom }}", this.entry.newRoom)
+				.replace("{{ oldRoom }}", this.entry.oldRoom);
+
 			try {
-				return text
-					.replace("{{ day }}", this.entry.day)
-					.replace("{{ period }}", this.entry.period.toString())
-					.replace("{{ oldSubject }}", this.entry.longOldSubject)
-					.replace("{{ newSubject }}", this.entry.longNewSubject)
-					.replace("{{ newRoom }}", this.entry.newRoom)
-					.replace("{{ oldRoom }}", this.entry.oldRoom);
-			} catch {
-				return "Some error occured :/";
+				if (alt !== undefined) {
+					// Do the dangerous formatting
+					return text
+						.replace("{{ oldSubject }}", this.entry.longOldSubject)
+						.replace("{{ newSubject }}", this.entry.longNewSubject);
+				} else {
+					return text;
+				}
+			} catch (e) {
+				if (alt !== undefined) {
+					// Return the "fallback" text / the alt text
+					return this.formatText(alt, undefined, translateToEnglish);
+				} else {
+					console.error(e);
+					return "Some error occured :/";
+				}
 			}
 		},
 		async loadText() {

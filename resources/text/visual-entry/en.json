@@ -1,6 +1,11 @@
 {
-	"Vertretung": "On <span class=\"entry-day\">{{ day }}</span> in the <span class=\"entry-period\">{{ period }}.</span> period in <span class=\"entry-subject\">{{ oldSubject }}</span> is going to be another Teacher",
-	"Entfall": "Am <span class=\"entry-day\">{{ day }}</span> entfällt <span class=\"entry-subject\">{{ oldSubject }}</span> in der <span class=\"entry-period\">{{ period }}.</span> Stunde.",
-	"Betreuung": "Am <span class=\"entry-day\">{{ day }}</span> wird die Klasse in der <span class=\"entry-period\">{{ period }}.</span> Stunde von einer anderen Lehrkraft betreut",
-	"Raum Vtr.": "Am <span class=\"entry-day\">{{ day }}</span> findet die <span class=\"entry-period\">{{ period }}.</span> Stunde in Raum <span class=\"entry-new-room\">{{ newRoom }}.</span> statt."
+	"lang": "en",
+	"Vertretung": "On {{ day }} in the {{ period }}. period in {{ oldSubject }} is going to be another Teacher",
+	"Vertretung-alt": "On {{ day }} in the {{ period }}. period is going to be another Teacher",
+	"Entfall": "On {{ day }}, {{ oldSubject }} in the {{ period }}. period is omitted",
+	"Entfall-alt": "On {{ day }} the {{ period }}. period is omitted",
+	"Betreuung": "On {{ day }} in the {{ period }}. period you will be supervised by another Teacher",
+	"Betreuung-alt": "On {{ day }} in the {{ period }}. period you will be supervised by another Teacher",
+	"Raum Vtr.": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt.",
+	"Raum Vtr.-alt": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt."
 }
