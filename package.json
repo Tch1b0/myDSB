@@ -6,6 +6,9 @@
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
+		"build:android": "ionic cap build android",
+		"build:ios": "ionic cap build ios",
+		"build:all": "npm run build:android && npm run build:ios",
 		"test": "cypress run",
 		"test:gui": "cypress open",
 		"test:main": "cypress run main",

@@ -6,6 +6,6 @@
 	"Entfall-alt": "On {{ day }} the {{ period }}. period is omitted",
 	"Betreuung": "On {{ day }} in the {{ period }}. period you will be supervised by another Teacher",
 	"Betreuung-alt": "On {{ day }} in the {{ period }}. period you will be supervised by another Teacher",
-	"Raum Vtr.": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt.",
-	"Raum Vtr.-alt": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt."
+	"Raum-Vtr.": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt.",
+	"Raum-Vtr.-alt": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt."
 }

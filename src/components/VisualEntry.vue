@@ -1,5 +1,5 @@
 <template>
-	<ion-card :class="[color]">
+	<ion-card :class="[color]" ref="b">
 		<ion-card-content v-if="text !== undefined">
 			<div
 				v-if="text !== undefined"
@@ -7,11 +7,15 @@
 					formatText(
 						text[entry.type],
 						text[entry.type + '-alt'],
-						text['lang']
+						text['lang'] == 'en'
 					)
 				"
 			></div>
-			<ion-icon :icon="check" style="font-size: 20px"></ion-icon>
+			<ion-icon
+				:icon="check"
+				style="font-size: 20px"
+				@click="color = 'blue'"
+			></ion-icon>
 		</ion-card-content>
 	</ion-card>
 </template>
@@ -19,14 +23,20 @@
 <script lang="ts">
 import { Entry } from "dsbmobile/dist/timetable/entry";
 import { defineComponent } from "vue";
-import { IonCard, IonCardContent, IonIcon } from "@ionic/vue";
+import { createAnimation, IonCard, IonCardContent, IonIcon } from "@ionic/vue";
 import { checkmarkDoneCircleOutline as check } from "ionicons/icons";
 import store from "@/store";
 
 export default defineComponent({
 	store,
 	props: {
-		entry: Entry,
+		entry: {
+			type: Entry,
+		},
+		delay: {
+			default: 0,
+			type: Number,
+		},
 	},
 	data() {
 		let color: string;
@@ -57,13 +67,22 @@ export default defineComponent({
 		}
 
 		this.loadText();
-		console.log(this.entry);
 		return {
 			color,
 			check,
 			text: {},
 			store,
 		};
+	},
+	mounted() {
+		createAnimation()
+			.addElement(this.$el)
+			.duration(650)
+			.delay(this.delay * 1000)
+			.easing("ease-in-out")
+			.fromTo("transform", "translateY(-20px)", "translateY(0px)")
+			.fromTo("opacity", "0", "100%")
+			.play();
 	},
 	methods: {
 		weekDaysToEnglish(day: string): string {

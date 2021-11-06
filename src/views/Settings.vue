@@ -137,5 +137,8 @@ export default defineComponent<Data, Methods>({
 			this.text = await store.dispatch("loadText", "settings");
 		},
 	},
+	beforeRouteLeave() {
+		this.save();
+	},
 });
 </script>

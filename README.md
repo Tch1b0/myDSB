@@ -34,13 +34,13 @@ $ npm run lint
 ### Build for android
 
 ```
-$ ionic cap build android
+$ npm run build:android
 ```
 
 ### Build for ios
 
 ```
-$ ionic cap build ios
+$ npm run build:ios
 ```
 
 ## Built with

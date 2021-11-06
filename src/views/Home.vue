@@ -1,6 +1,7 @@
 <template>
 	<ion-page>
 		<ion-content>
+			<!--eslint-disable-next-line-->
 			<ion-refresher @ionRefresh="refresh($event)" slot="fixed">
 				<ion-refresher-content></ion-refresher-content>
 			</ion-refresher>
@@ -23,12 +24,12 @@
 				"
 			>
 				<div
-					v-for="entry of timeTable.findByClassName(
+					v-for="(entry, index) of timeTable.findByClassName(
 						settings.className
 					)"
-					:key="entry"
+					:key="(entry, index)"
 				>
-					<visual-entry :entry="entry"></visual-entry>
+					<visual-entry :entry="entry" :delay="index"></visual-entry>
 				</div>
 			</div>
 			<nav-bar />
