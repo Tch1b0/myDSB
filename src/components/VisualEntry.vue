@@ -150,7 +150,7 @@ export default defineComponent({
 		},
 	},
 	watch: {
-		"store.state.account.settings"(_) {
+		"store.state.account.settings"() {
 			this.loadText();
 		},
 	},
