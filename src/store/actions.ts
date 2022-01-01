@@ -4,61 +4,61 @@ import { ActionTree } from "vuex";
 import { State } from ".";
 
 export const actions = {
-	async login(state) {
-		const account = state.state.account;
-		let dsb: Dsbmobile;
-		state.commit("loadingState", "loading");
+    async login(state) {
+        const account = state.state.account;
+        let dsb: Dsbmobile;
+        state.commit("loadingState", "loading");
 
-		const apiURL = "https://mydsb.johannespour.de";
-		const resURL = "https://mydsb.johannespour.de/light";
+        const apiURL = "https://mydsb.johannespour.de";
+        const resURL = "https://mydsb.johannespour.de/light";
 
-		if (account.token !== undefined) {
-			dsb = new Dsbmobile({
-				baseURL: apiURL,
-				resourceBaseURL: resURL,
-				token: account.token,
-			});
-		} else if (
-			account.username !== undefined &&
-			account.password !== undefined
-		) {
-			dsb = new Dsbmobile({
-				id: account.username,
-				password: account.password,
-				baseURL: apiURL,
-				resourceApiURL: resURL,
-			});
-			await dsb.fetchToken();
-		} else {
-			state.commit("loadingState", "error");
-			return;
-		}
+        if (account.token !== undefined) {
+            dsb = new Dsbmobile({
+                baseURL: apiURL,
+                resourceBaseURL: resURL,
+                token: account.token,
+            });
+        } else if (
+            account.username !== undefined &&
+            account.password !== undefined
+        ) {
+            dsb = new Dsbmobile({
+                id: account.username,
+                password: account.password,
+                baseURL: apiURL,
+                resourceApiURL: resURL,
+            });
+            await dsb.fetchToken();
+        } else {
+            state.commit("loadingState", "error");
+            return;
+        }
 
-		if (dsb.token === undefined || dsb.token.length <= 0) {
-			state.commit("loadingState", "error");
-			throw new WrongCredentials();
-		}
+        if (dsb.token === undefined || dsb.token.length <= 0) {
+            state.commit("loadingState", "error");
+            throw new WrongCredentials();
+        }
 
-		state.commit("dsbApi", dsb);
+        state.commit("dsbApi", dsb);
 
-		state.commit("loadingState", "done");
-	},
-	logout(state) {
-		state.commit("resetAccount");
-		router.push("login");
-	},
+        state.commit("loadingState", "done");
+    },
+    logout(state) {
+        state.commit("resetAccount");
+        router.push("login");
+    },
 
-	async update(state) {
-		const dsb: Dsbmobile = await state.getters.dsb;
+    async update(state) {
+        const dsb: Dsbmobile = await state.getters.dsb;
 
-		state.commit("timeTable", await dsb.getTimetable());
-	},
+        state.commit("timeTable", await dsb.getTimetable());
+    },
 
-	async loadText(state, page: string): Promise<object> {
-		const text = await import(
-			`@/../resources/text/${page}/${state.state.account.settings.lang}.json`
-		);
+    async loadText(state, page: string): Promise<object> {
+        const text = await import(
+            `@/../resources/text/${page}/${state.state.account.settings.lang}.json`
+        );
 
-		return text;
-	},
+        return text;
+    },
 } as ActionTree<State, State>;

@@ -1,9 +1,9 @@
 {
-	"logout": "Abmelden",
-	"class-name": "Klassen Name",
-	"send-notifications": "Benachrichtigungen Senden",
-	"lang": "Sprache",
-	"cancel": "Abbrechen",
-	"ok": "Ok",
-	"save": "Speichern"
+    "logout": "Abmelden",
+    "class-name": "Klassen Name",
+    "send-notifications": "Benachrichtigungen Senden",
+    "lang": "Sprache",
+    "cancel": "Abbrechen",
+    "ok": "Ok",
+    "save": "Speichern"
 }
