@@ -13,7 +13,4 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: npm run serve
-          wait-on: "http://localhost:8080"
-          parallel: true
-          record: true
           spec: cypress/integration/*
