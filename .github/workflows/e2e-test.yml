@@ -15,4 +15,5 @@ jobs:
           start: npm run serve
           wait-on: "http://localhost:8080"
           parallel: true
+          record: false
           spec: cypress/integration/*
