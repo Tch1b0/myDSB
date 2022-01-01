@@ -29,7 +29,7 @@
 		"@types/node": "^16.11.6",
 		"capacitor-resources": "^2.0.5",
 		"core-js": "^3.6.5",
-		"dsbmobile": "^1.0.8",
+		"dsbmobile": "^1.0.9",
 		"vue": "^3.2.1",
 		"vue-router": "^4.0.0-0",
 		"vuex": "^4.0.0"
