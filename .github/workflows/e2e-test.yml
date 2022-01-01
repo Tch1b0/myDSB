@@ -1,5 +1,9 @@
 name: e2e test
-on: [push]
+on:
+  push:
+    paths:
+      - "cypress/**"
+      - "src/**"
 
 jobs:
   cypress-run:
