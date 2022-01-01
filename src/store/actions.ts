@@ -3,12 +3,6 @@ import Dsbmobile, { WrongCredentials } from "dsbmobile";
 import { ActionTree } from "vuex";
 import { State } from ".";
 
-interface DsbLoginInfo {
-	token?: string;
-	username?: string;
-	password?: string;
-}
-
 export const actions = {
 	async login(state) {
 		const account = state.state.account;
