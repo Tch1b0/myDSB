@@ -1,8 +1,8 @@
 {
-  "name": "myDSB",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "vue",
-  "id": "5eb285b7"
+    "name": "myDSB",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "vue",
+    "id": "5eb285b7"
 }

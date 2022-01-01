@@ -1,11 +1,11 @@
 {
-	"lang": "en",
-	"Vertretung": "On {{ day }} in the {{ period }}. period in {{ oldSubject }} is going to be another Teacher",
-	"Vertretung-alt": "On {{ day }} in the {{ period }}. period is going to be another Teacher",
-	"Entfall": "On {{ day }}, {{ oldSubject }} in the {{ period }}. period is omitted",
-	"Entfall-alt": "On {{ day }} the {{ period }}. period is omitted",
-	"Betreuung": "On {{ day }} in the {{ period }}. period you will be supervised by another Teacher",
-	"Betreuung-alt": "On {{ day }} in the {{ period }}. period you will be supervised by another Teacher",
-	"Raum-Vtr.": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt.",
-	"Raum-Vtr.-alt": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt."
+    "lang": "en",
+    "Vertretung": "On {{ day }} in the {{ period }}. period in {{ oldSubject }} is going to be another Teacher",
+    "Vertretung-alt": "On {{ day }} in the {{ period }}. period is going to be another Teacher",
+    "Entfall": "On {{ day }}, {{ oldSubject }} in the {{ period }}. period is omitted",
+    "Entfall-alt": "On {{ day }} the {{ period }}. period is omitted",
+    "Betreuung": "On {{ day }} in the {{ period }}. period you will be supervised by another Teacher",
+    "Betreuung-alt": "On {{ day }} in the {{ period }}. period you will be supervised by another Teacher",
+    "Raum-Vtr.": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt.",
+    "Raum-Vtr.-alt": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt."
 }

@@ -1,8 +1,8 @@
 {
-	"username": "Nutzername/Kennung/Id",
-	"password": "Passwort",
-	"login": "Anmelden",
-	"credential-error": "Entweder das Passwort oder der Nutzername sind falsch",
-	"unknown-error": "Etwas ist schief gelaufen :/",
-	"form-validation-error": "Bitte fülle alle felder aus"
+    "username": "Nutzername/Kennung/Id",
+    "password": "Passwort",
+    "login": "Anmelden",
+    "credential-error": "Entweder das Passwort oder der Nutzername sind falsch",
+    "unknown-error": "Etwas ist schief gelaufen :/",
+    "form-validation-error": "Bitte fülle alle felder aus"
 }

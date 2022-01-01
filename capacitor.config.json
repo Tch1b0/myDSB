@@ -1,6 +1,6 @@
 {
-	"appId": "de.johannespour.mydsb",
-	"appName": "myDSB",
-	"webDir": "dist",
-	"bundledWebRuntime": false
+    "appId": "de.johannespour.mydsb",
+    "appName": "myDSB",
+    "webDir": "dist",
+    "bundledWebRuntime": false
 }

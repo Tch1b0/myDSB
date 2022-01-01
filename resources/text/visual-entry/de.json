@@ -1,11 +1,11 @@
 {
-	"lang": "de",
-	"Vertretung": "Am {{ day }} in der {{ period }}. Stunde in {{ oldSubject }} findet eine Vertretung statt",
-	"Vertretung-alt": "Am {{ day }} findet in der {{ period }}. Stunde eine Vertretung statt",
-	"Entfall": "Am {{ day }} entfällt {{ oldSubject }} in der {{ period }}. Stunde.",
-	"Entfall-alt": "Am {{ day }} entfällt in die {{ period }}. Stunde.",
-	"Betreuung": "Am {{ day }} wird die Klasse in der {{ period }}. Stunde von einer anderen Lehrkraft betreut",
-	"Betreuung-alt": "Am {{ day }} wird die Klasse in der {{ period }}. Stunde von einer anderen Lehrkraft betreut",
-	"Raum-Vtr.": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt.",
-	"Raum-Vtr.-alt": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt."
+    "lang": "de",
+    "Vertretung": "Am {{ day }} in der {{ period }}. Stunde in {{ oldSubject }} findet eine Vertretung statt",
+    "Vertretung-alt": "Am {{ day }} findet in der {{ period }}. Stunde eine Vertretung statt",
+    "Entfall": "Am {{ day }} entfällt {{ oldSubject }} in der {{ period }}. Stunde.",
+    "Entfall-alt": "Am {{ day }} entfällt in die {{ period }}. Stunde.",
+    "Betreuung": "Am {{ day }} wird die Klasse in der {{ period }}. Stunde von einer anderen Lehrkraft betreut",
+    "Betreuung-alt": "Am {{ day }} wird die Klasse in der {{ period }}. Stunde von einer anderen Lehrkraft betreut",
+    "Raum-Vtr.": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt.",
+    "Raum-Vtr.-alt": "Am {{ day }} findet die {{ period }}. Stunde in Raum {{ newRoom }}. statt."
 }
