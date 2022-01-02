@@ -11,7 +11,7 @@ export class Account {
         public token?: string,
         public settings: Settings = {
             sendNotifications: true,
-            lang: "en",
+            lang: "de",
             className: "",
         },
     ) {}
