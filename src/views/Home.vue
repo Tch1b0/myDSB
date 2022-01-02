@@ -23,7 +23,7 @@
                     <visual-entry :entry="entry" :delay="index"></visual-entry>
                 </div>
             </div>
-            <nav-bar />
+            <nav-bar selected="home" />
         </ion-content>
     </ion-page>
 </template>

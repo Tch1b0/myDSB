@@ -3,10 +3,12 @@
         <ion-router-outlet></ion-router-outlet>
         <ion-tab-bar>
             <ion-tab-button tab="home" @click="redir('home')">
-                <ion-icon :icon="planet"></ion-icon>
+                <ion-icon :icon="planet" :color="colors['home']"></ion-icon>
             </ion-tab-button>
             <ion-tab-button tab="settings" @click="redir('settings')">
-                <ion-icon :icon="settings"></ion-icon>
+                <ion-icon
+                    :icon="settings"
+                    :color="colors['settings']"></ion-icon>
             </ion-tab-button>
         </ion-tab-bar>
     </ion-tabs>
@@ -26,7 +28,21 @@ import { planet, settings } from "ionicons/icons";
 export default defineComponent({
     components: { IonTabBar, IonTabButton, IonIcon, IonTabs, IonRouterOutlet },
     data() {
-        return { planet, settings };
+        const colors: Record<string, string> = {
+            home: "",
+            settings: "",
+        };
+        for (const key in colors) {
+            if (key == this.selected) {
+                colors[key] = "primary";
+            }
+        }
+        return { planet, settings, colors };
+    },
+    props: {
+        selected: {
+            type: String,
+        },
     },
     methods: {
         redir(route: string) {

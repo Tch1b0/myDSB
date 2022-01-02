@@ -50,7 +50,7 @@
                     </ion-col>
                 </ion-row>
             </ion-grid>
-            <nav-bar />
+            <nav-bar selected="settings" />
         </ion-content>
     </ion-page>
 </template>
