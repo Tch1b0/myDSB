@@ -26,16 +26,31 @@ const router = createRouter({
     routes,
 });
 
-router.beforeEach((to, from, next) => {
+// execute before every route call
+router.beforeEach((to, _from, next) => {
+    // check wether the user is logged in and if so,
+    // let them enter the route
     if (store.state.dsb !== undefined) {
         next();
-    } else if (store.state.account.username !== undefined) {
+    }
+
+    // else if the user has his credentials stored locally,
+    // log in from there
+    else if (store.state.account.username !== undefined) {
         store.dispatch("login").then(() => {
             next("home");
         });
-    } else if (to.path !== "/login") {
+    }
+
+    // else if the user doesn't want to access the login route,
+    // send them there
+    else if (to.path !== "/login") {
         next("login");
-    } else {
+    }
+
+    // if the user wants to access the login route,
+    // let them
+    else {
         next();
     }
 });

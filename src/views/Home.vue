@@ -71,10 +71,10 @@ export default defineComponent({
         },
     },
     watch: {
-        "store.state.account.settings"(val) {
+        "store.state.account.settings"(val: any): void {
             this.settings = val;
         },
-        "store.state.timeTable"(val) {
+        "store.state.timeTable"(val: any): void {
             this.timeTable = val;
         },
     },
