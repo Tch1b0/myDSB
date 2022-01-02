@@ -5,7 +5,7 @@
     "description": "A DSBmobile-mobile alternative",
     "prettier": "@tch1b0/prettier-config",
     "scripts": {
-        "serve": "vue-cli-service serve",
+        "serve": "vue-cli-service serve -p=8080",
         "build": "vue-cli-service build",
         "build:android": "ionic cap build android",
         "build:ios": "ionic cap build ios",
