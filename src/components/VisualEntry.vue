@@ -1,5 +1,5 @@
 <template>
-    <ion-card :class="[color]" ref="b">
+    <ion-card :class="[color]">
         <ion-card-content v-if="text !== undefined">
             <div
                 v-if="text !== undefined"
@@ -10,10 +10,6 @@
                         text['lang'] == 'en',
                     )
                 "></div>
-            <ion-icon
-                :icon="check"
-                style="font-size: 20px"
-                @click="color = 'blue'"></ion-icon>
         </ion-card-content>
     </ion-card>
 </template>
@@ -21,12 +17,16 @@
 <script lang="ts">
 import { Entry } from "dsbmobile/dist/timetable/entry";
 import { defineComponent } from "vue";
-import { createAnimation, IonCard, IonCardContent, IonIcon } from "@ionic/vue";
+import { createAnimation, IonCard, IonCardContent } from "@ionic/vue";
 import { checkmarkDoneCircleOutline as check } from "ionicons/icons";
 import store from "@/store";
 
 export default defineComponent({
     store,
+    components: {
+        IonCard,
+        IonCardContent,
+    },
     props: {
         entry: {
             type: Entry,
@@ -75,8 +75,8 @@ export default defineComponent({
     mounted() {
         createAnimation()
             .addElement(this.$el)
-            .duration(650)
-            .delay(this.delay * 1000)
+            .duration(250)
+            .delay(this.delay * 100)
             .easing("ease-in-out")
             .fromTo("transform", "translateY(-20px)", "translateY(0px)")
             .fromTo("opacity", "0", "100%")
@@ -97,6 +97,7 @@ export default defineComponent({
             };
             return days[day];
         },
+
         /**
          * Format a VisualEntry text
          * @param text The text you want to format
@@ -152,15 +153,14 @@ export default defineComponent({
             this.loadText();
         },
     },
-    components: {
-        IonCard,
-        IonCardContent,
-        IonIcon,
-    },
 });
 </script>
 
 <style scoped>
+ion-card {
+    min-height: 60px;
+}
+
 .green {
     color: white;
     background-color: rgba(37, 185, 37, 0.7);
