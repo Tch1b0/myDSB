@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "private": true,
     "description": "A DSBmobile-mobile alternative",
+    "license": "GPL-3.0",
     "prettier": "@tch1b0/prettier-config",
     "scripts": {
         "serve": "vue-cli-service serve -p=8080",
