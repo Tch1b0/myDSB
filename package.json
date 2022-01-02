@@ -30,7 +30,7 @@
         "@tch1b0/prettier-config": "1.0.0",
         "@types/node": "16.11.17",
         "capacitor-resources": "2.0.5",
-        "core-js": "3.20.1",
+        "core-js": "3.20.2",
         "dsbmobile": "1.0.9",
         "vue": "3.2.26",
         "vue-router": "4.0.12",
