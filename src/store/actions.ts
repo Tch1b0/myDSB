@@ -74,4 +74,22 @@ export const actions = {
 
         return text;
     },
+
+    getVisibleClassNames(state): string[] {
+        const timeTable = state.state.timeTable;
+        if (timeTable === undefined) return [];
+
+        const classNames: string[] = [];
+
+        for (const entry of timeTable.entries) {
+            for (const className of entry.className) {
+                if (!classNames.includes(className)) {
+                    classNames.push(className);
+                }
+                console.log(className);
+            }
+        }
+
+        return classNames;
+    },
 } as ActionTree<State, State>;
