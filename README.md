@@ -7,7 +7,7 @@ _The alternative you didn't ask for, but the one you deserve._
 ## Philosophy
 
 _Why is your Smartphone called smart?_
-Because it does stuff smartly _for_ you instead of just giving all the information crunched together.
+Because it does stuff automatically _for_ you instead of just giving all the information crunched together.
 
 **myDSB** is a kind of app that is supposed to actively **present** information to you.
 
@@ -47,7 +47,8 @@ $ npm run build:ios
 
 ## Built with
 
--   Ionic
--   Capacitor
--   Vue
--   Typescript
+-   [ionic](https://ionic.io/)
+-   [ionicons](https://github.com/ionic-team/ionicons)
+-   [capacitor](https://capacitorjs.com/)
+-   [Vue.js](https://vuejs.org/)
+-   [TypeScript](https://www.typescriptlang.org/)
