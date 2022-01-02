@@ -10,16 +10,11 @@
                     timeTable !== undefined &&
                     timeTable.findByClassName(settings.className).length === 0
                 ">
-                <h2>
-                    Nothing to see here...
-                    {{ settings.className }}
+                <h2 style="text-align: center">
+                    {{ text["empty"] }}
                 </h2>
             </div>
-            <div
-                v-if="
-                    timeTable !== undefined &&
-                    timeTable.findByClassName(settings.className).length > 0
-                ">
+            <div v-else-if="timeTable !== undefined">
                 <div
                     v-for="(entry, index) of timeTable.findByClassName(
                         settings.className,
@@ -58,16 +53,21 @@ export default defineComponent({
     data() {
         store.dispatch("update");
         const settings = store.getters.settings;
+        this.loadText();
         return {
             settings,
             store,
             timeTable: store.state.timeTable,
+            text: {},
         };
     },
     methods: {
         async refresh(event: any) {
             await store.dispatch("update");
             event.target.complete();
+        },
+        async loadText() {
+            this.text = await store.dispatch("loadText", "home");
         },
     },
     watch: {
@@ -77,6 +77,9 @@ export default defineComponent({
         "store.state.timeTable"(val: any): void {
             this.timeTable = val;
         },
+    },
+    ionViewWillEnter() {
+        this.loadText();
     },
 });
 </script>
