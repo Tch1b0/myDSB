@@ -22,10 +22,6 @@ allprojects {
         google()
         jcenter()
         
-        maven {
-           // capacitor-background-fetch
-           url("${project(':transistorsoft-capacitor-background-fetch').projectDir}/libs")
-       }
     }
 }
 
