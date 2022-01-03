@@ -30,7 +30,7 @@
         "@ionic/vue": "6.0.1",
         "@ionic/vue-router": "6.0.1",
         "@tch1b0/prettier-config": "1.0.0",
-        "@types/node": "16.11.17",
+        "@types/node": "16.11.18",
         "capacitor-resources": "2.0.5",
         "core-js": "3.20.2",
         "dsbmobile": "1.0.9",
