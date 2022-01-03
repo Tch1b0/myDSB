@@ -66,6 +66,7 @@ import {
 } from "@ionic/vue";
 import store from "@/store";
 import { Account } from "@/utility/account";
+import { LoadingStates } from "@/utility/utils";
 
 interface SiteText {
     username: string;
@@ -131,7 +132,7 @@ export default defineComponent<Data>({
             store
                 .dispatch("login")
                 .then(async () => {
-                    if (store.state.loadingState !== "error") {
+                    if (store.state.loadingState !== LoadingStates.Error) {
                         this.$router.push("/");
                     } else {
                         const toast = await toastController.create({
