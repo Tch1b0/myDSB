@@ -29,8 +29,14 @@ npm-debug.log*
 /platforms
 /plugins
 /www
-**/android
-**/ios
 keys/
 /cypress/videos
 /cypress/screenshots
+
+# android git config
+android/
+!android/build.gradle
+!android/app/proguard-rules.pro
+
+# ios git config 
+ios/*
