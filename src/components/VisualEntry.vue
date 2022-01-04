@@ -17,9 +17,10 @@
 <script lang="ts">
 import { Entry } from "dsbmobile/dist/timetable/entry";
 import { defineComponent } from "vue";
-import { createAnimation, IonCard, IonCardContent } from "@ionic/vue";
+import { IonCard, IonCardContent } from "@ionic/vue";
 import { checkmarkDoneCircleOutline as check } from "ionicons/icons";
 import store from "@/store";
+import { appearAnimation } from "@/utility/utils";
 
 export default defineComponent({
     store,
@@ -73,14 +74,7 @@ export default defineComponent({
         };
     },
     mounted() {
-        createAnimation()
-            .addElement(this.$el)
-            .duration(250)
-            .delay(this.delay * 100)
-            .easing("ease-in-out")
-            .fromTo("transform", "translateY(-20px)", "translateY(0px)")
-            .fromTo("opacity", "0", "100%")
-            .play();
+        appearAnimation(this.$el, this.delay * 100).play();
     },
     methods: {
         weekDaysToEnglish(day: string): string {

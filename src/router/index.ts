@@ -40,10 +40,18 @@ router.beforeEach((to, _from, next) => {
 
     // else if the user has his credentials stored locally,
     // log in from there
-    else if (store.state.account.username !== undefined) {
-        store.dispatch("login").then(() => {
-            next("home");
-        });
+    else if (
+        store.state.account.username !== undefined ||
+        store.state.account.token !== undefined
+    ) {
+        store
+            .dispatch("login")
+            .then(() => {
+                next();
+            })
+            .catch(() => {
+                next("login");
+            });
     }
 
     // else if the user doesn't want to access the login route,
