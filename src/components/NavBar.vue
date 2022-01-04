@@ -10,6 +10,10 @@
                 <ion-icon :icon="newspaper" :color="colors['news']"></ion-icon>
             </ion-tab-button>
 
+            <ion-tab-button tab="docnews" @click="redir('docnews')">
+                <ion-icon :icon="docnews" :color="colors['docnews']"></ion-icon>
+            </ion-tab-button>
+
             <ion-tab-button tab="settings" @click="redir('settings')">
                 <ion-icon
                     :icon="settings"
@@ -28,7 +32,12 @@ import {
     IonTabs,
     IonRouterOutlet,
 } from "@ionic/vue";
-import { planet, settings, newspaper } from "ionicons/icons";
+import {
+    planet,
+    settings,
+    newspaper,
+    documentText as docnews,
+} from "ionicons/icons";
 
 export default defineComponent({
     components: { IonTabBar, IonTabButton, IonIcon, IonTabs, IonRouterOutlet },
@@ -37,13 +46,14 @@ export default defineComponent({
             home: "",
             settings: "",
             news: "",
+            docnews: "",
         };
         for (const key in colors) {
             if (key == this.selected) {
                 colors[key] = "primary";
             }
         }
-        return { planet, settings, newspaper, colors };
+        return { planet, settings, newspaper, docnews, colors };
     },
     props: {
         selected: {

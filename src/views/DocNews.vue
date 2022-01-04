@@ -5,11 +5,11 @@
             <ion-refresher @ionRefresh="refresh($event)" slot="fixed">
                 <ion-refresher-content></ion-refresher-content>
             </ion-refresher>
-            <visual-news-post
-                v-for="newsPost in newsPostCollection.posts"
-                :key="newsPost"
-                :newsPost="newsPost"></visual-news-post>
-            <nav-bar selected="news" />
+            <visual-doc-post
+                v-for="docPost in documentPostCollection.posts"
+                :key="docPost"
+                :docPost="docPost"></visual-doc-post>
+            <nav-bar selected="docnews" />
         </ion-content>
     </ion-page>
 </template>
@@ -24,9 +24,9 @@ import {
     IonContent,
 } from "@ionic/vue";
 import NavBar from "@/components/NavBar.vue";
-import VisualNewsPost from "@/components/VisualNewsPost.vue";
+import VisualDocPost from "@/components/VisualDocPost.vue";
 import store from "@/store";
-import { NewsPost, NewsPostCollection } from "dsbmobile";
+import { DocumentPostCollection, DocumentPost } from "dsbmobile";
 
 export default defineComponent({
     store,
@@ -36,19 +36,21 @@ export default defineComponent({
         IonRefresherContent,
         IonContent,
         NavBar,
-        VisualNewsPost,
+        VisualDocPost,
     },
     data() {
-        const tmp = new NewsPostCollection([
-            new NewsPost(
+        const tmp = new DocumentPostCollection([
+            new DocumentPost(
+                "ID",
                 "Irgndwelche Neuigkeiten",
                 new Date(),
-                "Lorem ipsum somet amet lorem ipsum somet amet",
+                "someURL",
+                "somePreviewURL",
             ),
         ]);
         return {
             store,
-            newsPostCollection: tmp, //store.state.newsPostCollection
+            documentPostCollection: tmp, //store.state.documentPostCollection,
         };
     },
     methods: {
@@ -58,8 +60,8 @@ export default defineComponent({
         },
     },
     watch: {
-        "store.state.newsPostCollection"(newVal: NewsPostCollection) {
-            this.newsPostCollection = newVal;
+        "store.state.documentPostCollection"(newVal: DocumentPostCollection) {
+            this.documentPostCollection = newVal;
         },
     },
 });
