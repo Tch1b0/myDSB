@@ -65,8 +65,10 @@ export const actions = {
         const dsb: Dsbmobile = await state.getters.dsb;
 
         state.commit("timeTable", await dsb.getTimetable());
-        state.commit("newsPostCollection", await dsb.getNewsPosts());
-        state.commit("documentPostCollection", await dsb.getDocumentPosts());
+
+        // TODO: Uncomment following lines after they are implemented
+        // state.commit("newsPostCollection", await dsb.getNewsPosts());
+        // state.commit("documentPostCollection", await dsb.getDocumentPosts());
     },
 
     // load the text for a certain page in a certain language
