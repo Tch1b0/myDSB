@@ -9,7 +9,7 @@ _The alternative you didn't ask for, but the one you deserve._
 _Why is your Smartphone called smart?_
 Because it does stuff automatically _for_ you instead of just giving all the information crunched together.
 
-**myDSB** is a kind of app that is supposed to actively **present** information to you.
+**myDSB** is a kind of app that actively **presents** information you inforamtion.
 
 ## npm scripts
 
