@@ -1,6 +1,11 @@
 import { Account, Settings } from "@/utility/account";
+import { LoadingStates } from "@/utility/utils";
 import { Storage } from "@ionic/storage";
-import Dsbmobile, { TimeTable } from "dsbmobile";
+import Dsbmobile, {
+    DocumentPostCollection,
+    NewsPostCollection,
+    TimeTable,
+} from "dsbmobile";
 import { MutationTree } from "vuex";
 import store, { State } from ".";
 
@@ -11,7 +16,17 @@ export const mutations = {
     timeTable(state, timeTable: TimeTable) {
         state.timeTable = timeTable;
     },
-    loadingState(state, newState: string) {
+    newsPostCollection(state, newsPostCollection: NewsPostCollection) {
+        state.newsPostCollection = newsPostCollection;
+    },
+    documentPostCollection(
+        state,
+        documentPostCollection: DocumentPostCollection,
+    ) {
+        state.documentPostCollection = documentPostCollection;
+    },
+
+    loadingState(state, newState: LoadingStates) {
         state.loadingState = newState;
     },
     account(state, acc: Account) {
