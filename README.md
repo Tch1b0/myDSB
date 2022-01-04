@@ -45,6 +45,14 @@ $ npm run build:android
 $ npm run build:ios
 ```
 
+### Adapt icon and splash screen
+
+This should be executed right after building
+
+```
+$ npm run resources
+```
+
 ## Built with
 
 -   [ionic](https://ionic.io/)
