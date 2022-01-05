@@ -58,9 +58,3 @@ export default defineComponent({
     },
 });
 </script>
-
-<style>
-ion-title {
-    text-align: center;
-}
-</style>
