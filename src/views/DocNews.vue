@@ -49,13 +49,12 @@ export default defineComponent({
             ),
         ]);
         return {
-            store,
             documentPostCollection: tmp, //store.state.documentPostCollection,
         };
     },
     methods: {
         async refresh(event: RefresherCustomEvent) {
-            await this.store.dispatch("update");
+            await store.dispatch("update");
             event.target.complete();
         },
     },
