@@ -1,0 +1,3 @@
+{
+    "account-as-json": "{\"username\":\"Username\",\"password\":\"Password\",\"token\":\"Token\",\"settings\":{\"className\":\"Class Name\",\"sendNotifications\":true,\"lang\":\"en\",\"darkMode\":true}}"
+}

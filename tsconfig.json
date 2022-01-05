@@ -1,29 +1,29 @@
 {
-	"compilerOptions": {
-		"target": "esnext",
-		"module": "esnext",
-		"strict": true,
-		"jsx": "preserve",
-		"importHelpers": true,
-		"moduleResolution": "node",
-		"skipLibCheck": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"sourceMap": true,
-		"baseUrl": ".",
-		"resolveJsonModule": true,
-		"types": ["webpack-env", "cypress", "node"],
-		"paths": {
-			"@/*": ["src/*"]
-		},
-		"typeRoots": ["./node_modules/@types"],
-		"lib": ["esnext", "dom", "dom.iterable", "scripthost"]
-	},
-	"include": [
-		"src/**/*.ts",
-		"src/**/*.tsx",
-		"src/**/*.vue",
-		"cypress/**/*.spec.ts"
-	],
-	"exclude": ["node_modules"]
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "strict": true,
+        "jsx": "preserve",
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "resolveJsonModule": true,
+        "types": ["webpack-env", "cypress", "node"],
+        "paths": {
+            "@/*": ["src/*"]
+        },
+        "typeRoots": ["./node_modules/@types"],
+        "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "cypress/**/*.spec.ts"
+    ],
+    "exclude": ["node_modules"]
 }
