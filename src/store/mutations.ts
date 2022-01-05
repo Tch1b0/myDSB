@@ -1,5 +1,5 @@
 import { Account, Settings } from "@/utility/account";
-import { LoadingStates } from "@/utility/utils";
+import { LoadingStates, toggleDarkMode } from "@/utility/utils";
 import { Storage } from "@ionic/storage";
 import Dsbmobile, {
     DocumentPostCollection,
@@ -53,5 +53,7 @@ export const mutations = {
             "account",
             JSON.stringify(state.account.toJSON()),
         );
+
+        toggleDarkMode(settings.darkMode);
     },
 } as MutationTree<State>;

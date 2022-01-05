@@ -15,6 +15,11 @@
                 </h2>
             </div>
             <div v-else-if="timeTable !== undefined">
+                <div style="text-align: center">
+                    <h3>
+                        {{ timeTable.entries.length }} {{ text["entries"] }}
+                    </h3>
+                </div>
                 <div
                     v-for="(entry, index) of timeTable.findByClassName(
                         settings.className,
@@ -64,6 +69,7 @@ export default defineComponent({
     methods: {
         async refresh(event: any) {
             await store.dispatch("update");
+            console.log(this.timeTable);
             event.target.complete();
         },
         async loadText() {

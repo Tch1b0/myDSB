@@ -15,3 +15,7 @@ export function appearAnimation(element: Element, delay: number): Animation {
         .fromTo("transform", "translateY(-20px)", "translateY(0px)")
         .fromTo("opacity", "0", "100%");
 }
+
+export function toggleDarkMode(turnOn: any) {
+    document.body.setAttribute("data-theme", turnOn ? "dark" : "light");
+}

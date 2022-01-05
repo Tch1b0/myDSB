@@ -2,6 +2,7 @@ export interface Settings {
     sendNotifications: boolean;
     lang: string;
     className: string;
+    darkMode: boolean;
 }
 
 export class Account {
@@ -13,6 +14,7 @@ export class Account {
             sendNotifications: true,
             lang: window.navigator.language === "de" ? "de" : "en",
             className: "",
+            darkMode: false,
         },
     ) {}
 
