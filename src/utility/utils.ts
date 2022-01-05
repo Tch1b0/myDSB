@@ -17,5 +17,5 @@ export function appearAnimation(element: Element, delay: number): Animation {
 }
 
 export function toggleDarkMode(turnOn: any) {
-    document.body.setAttribute("data-theme", turnOn ? "dark" : "light");
+    document.body.toggleAttribute("dark", turnOn);
 }

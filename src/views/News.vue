@@ -47,13 +47,12 @@ export default defineComponent({
             ),
         ]);
         return {
-            store,
             newsPostCollection: tmp, //store.state.newsPostCollection
         };
     },
     methods: {
         async refresh(event: RefresherCustomEvent) {
-            await this.store.dispatch("update");
+            await store.dispatch("update");
             event.target.complete();
         },
     },
