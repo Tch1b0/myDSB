@@ -1,6 +1,11 @@
 <template>
     <ion-page>
         <ion-content>
+            <ion-toolbar>
+                <ion-title>
+                    {{ text["settings"] }}
+                </ion-title>
+            </ion-toolbar>
             <ion-grid>
                 <ion-row justify-content-center center>
                     <ion-col>

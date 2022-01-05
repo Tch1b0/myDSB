@@ -5,6 +5,11 @@
             <ion-refresher @ionRefresh="refresh($event)" slot="fixed">
                 <ion-refresher-content></ion-refresher-content>
             </ion-refresher>
+            <ion-toolbar>
+                <ion-title>
+                    {{ text["documents"] }}
+                </ion-title>
+            </ion-toolbar>
             <visual-doc-post
                 v-for="docPost in documentPostCollection.posts"
                 :key="docPost"
@@ -48,8 +53,10 @@ export default defineComponent({
                 "somePreviewURL",
             ),
         ]);
+        this.loadText();
         return {
             documentPostCollection: tmp, //store.state.documentPostCollection,
+            text: {},
         };
     },
     methods: {
@@ -57,11 +64,17 @@ export default defineComponent({
             await store.dispatch("update");
             event.target.complete();
         },
+        async loadText() {
+            this.text = await store.dispatch("loadText", "doc-news");
+        },
     },
     watch: {
         "store.state.documentPostCollection"(newVal: DocumentPostCollection) {
             this.documentPostCollection = newVal;
         },
+    },
+    ionViewWillEnter() {
+        this.loadText();
     },
 });
 </script>

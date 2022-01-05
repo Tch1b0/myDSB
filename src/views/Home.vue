@@ -10,16 +10,19 @@
                     timeTable !== undefined &&
                     timeTable.findByClassName(settings.className).length === 0
                 ">
-                <h2 style="text-align: center">
-                    {{ text["empty"] }}
-                </h2>
+                <ion-toolbar>
+                    <ion-title>
+                        {{ text["timetable"] }} - {{ text["empty"] }}
+                    </ion-title>
+                </ion-toolbar>
             </div>
             <div v-else-if="timeTable !== undefined">
-                <div style="text-align: center">
-                    <h3>
-                        {{ timeTable.entries.length }} {{ text["entries"] }}
-                    </h3>
-                </div>
+                <ion-toolbar>
+                    <ion-title>
+                        {{ text["timetable"] }} - {{ timeTable.entries.length }}
+                        {{ text["entries"] }}
+                    </ion-title>
+                </ion-toolbar>
                 <div
                     v-for="(entry, index) of timeTable.findByClassName(
                         settings.className,
@@ -40,6 +43,8 @@ import {
     IonContent,
     IonRefresher,
     IonRefresherContent,
+    IonToolbar,
+    IonTitle,
 } from "@ionic/vue";
 import NavBar from "@/components/NavBar.vue";
 import store from "@/store";
@@ -54,6 +59,8 @@ export default defineComponent({
         VisualEntry,
         IonRefresher,
         IonRefresherContent,
+        IonToolbar,
+        IonTitle,
     },
     data() {
         store.dispatch("update");
