@@ -1,3 +1,8 @@
+Cypress.on("uncaught:exception", (err, runnable) => {
+    // TODO: Add REAL error handeling
+    return false;
+});
+
 describe("Test App", () => {
     beforeEach(() => {
         cy.intercept("/authid?*", "1234");
