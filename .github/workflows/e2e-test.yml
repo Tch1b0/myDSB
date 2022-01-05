@@ -5,6 +5,7 @@ on:
     paths:
       - "cypress/**"
       - "src/**"
+      - ".github/workflows/e2e-test.yml"
 
 jobs:
   cypress-run:

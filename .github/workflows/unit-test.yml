@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "src/**"
+      - ".github/workflows/unit-test.yml"
 
 jobs:
   run-tests:
