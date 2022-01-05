@@ -11,6 +11,7 @@
                                     type="text"
                                     v-model="className"></ion-input>
                             </ion-item>
+
                             <ion-item>
                                 <ion-label>{{ text["lang"] }}:</ion-label>
                                 <ion-select
@@ -26,16 +27,22 @@
                                     >
                                 </ion-select>
                             </ion-item>
+
                             <ion-item>
                                 <ion-label
                                     >{{
                                         text["send-notifications"]
                                     }}:</ion-label
                                 >
-                                <ion-checkbox
-                                    type="text"
-                                    v-model="sendNotifications"></ion-checkbox>
+                                <ion-toggle
+                                    v-model="sendNotifications"></ion-toggle>
                             </ion-item>
+
+                            <ion-item>
+                                <ion-label>{{ text["dark-mode"] }}:</ion-label>
+                                <ion-toggle v-model="darkMode"></ion-toggle>
+                            </ion-item>
+
                             <ion-item>
                                 <ion-button @click="save">{{
                                     text["save"]
@@ -69,7 +76,7 @@ import {
     IonItem,
     IonInput,
     IonLabel,
-    IonCheckbox,
+    IonToggle,
     IonSelect,
     IonSelectOption,
 } from "@ionic/vue";
@@ -82,6 +89,7 @@ interface Data {
     className: string;
     lang: string;
     text: object;
+    darkMode: boolean;
 }
 
 interface Methods {
@@ -104,7 +112,7 @@ export default defineComponent<Data, Methods>({
         IonInput,
         NavBar,
         IonLabel,
-        IonCheckbox,
+        IonToggle,
         IonSelect,
         IonSelectOption,
     },
@@ -115,6 +123,7 @@ export default defineComponent<Data, Methods>({
             sendNotifications: settings.sendNotifications,
             className: settings.className,
             lang: settings.lang,
+            darkMode: settings.darkMode,
             text: {},
         };
     },
@@ -127,6 +136,7 @@ export default defineComponent<Data, Methods>({
                 className: this.className,
                 sendNotifications: this.sendNotifications,
                 lang: this.lang,
+                darkMode: this.darkMode,
             } as Settings);
             this.loadText();
         },
