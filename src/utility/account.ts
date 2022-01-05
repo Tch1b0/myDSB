@@ -1,7 +1,23 @@
 export interface Settings {
+    /**
+     * Wether the app should to send the user notifications
+     */
     sendNotifications: boolean;
-    lang: string;
+
+    /**
+     * The language, in which the text should be displayed
+     * Can currently either be 'de' or 'en'
+     */
+    lang: "de" | "en";
+
+    /**
+     * The exact name of the Users school class
+     */
     className: string;
+
+    /**
+     * Wether the dark mode should be enabled or not
+     */
     darkMode: boolean;
 }
 
