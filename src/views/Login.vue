@@ -1,10 +1,12 @@
 <template>
     <ion-page>
+        <ion-header>
+            <ion-toolbar>
+                <ion-title class="title">myDSB</ion-title>
+            </ion-toolbar>
+        </ion-header>
         <ion-content>
             <ion-grid>
-                <ion-row justify-content-center center class="title-parent">
-                    <ion-title class="title">myDSB</ion-title>
-                </ion-row>
                 <ion-row justify-content-center center>
                     <ion-col size-xs="12">
                         <ion-card style="text-align: center">
@@ -63,6 +65,7 @@ import {
     IonProgressBar,
     toastController,
     IonTitle,
+    IonHeader,
 } from "@ionic/vue";
 import store from "@/store";
 import { Account } from "@/utility/account";
@@ -99,8 +102,9 @@ export default defineComponent<Data>({
         IonItem,
         IonLabel,
         IonTitle,
-        IonFooter,
+        IonHeader,
         IonToolbar,
+        IonFooter,
         IonProgressBar,
     },
     data() {
