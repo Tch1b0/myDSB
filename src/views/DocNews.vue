@@ -16,6 +16,11 @@
                 v-for="docPost in documentPostCollection.posts"
                 :key="docPost"
                 :docPost="docPost"></visual-doc-post>
+            <h4
+                class="background-info"
+                v-if="documentPostCollection.posts.length === 0">
+                {{ text["empty"] }}
+            </h4>
             <nav-bar selected="docnews" />
         </ion-content>
     </ion-page>
@@ -30,6 +35,8 @@ import {
     IonRefresherContent,
     IonContent,
     IonHeader,
+    IonTitle,
+    IonToolbar,
 } from "@ionic/vue";
 import NavBar from "@/components/NavBar.vue";
 import VisualDocPost from "@/components/VisualDocPost.vue";
@@ -44,10 +51,13 @@ export default defineComponent({
         IonRefresherContent,
         IonContent,
         IonHeader,
+        IonTitle,
+        IonToolbar,
         NavBar,
         VisualDocPost,
     },
     data() {
+        // Sample document posts
         const tmp = new DocumentPostCollection([
             new DocumentPost(
                 "ID",
@@ -57,9 +67,10 @@ export default defineComponent({
                 "somePreviewURL",
             ),
         ]);
+
         this.loadText();
         return {
-            documentPostCollection: tmp, //store.state.documentPostCollection,
+            documentPostCollection: store.state.documentPostCollection,
             text: {},
         };
     },

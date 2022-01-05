@@ -16,6 +16,14 @@
                 v-for="newsPost in newsPostCollection.posts"
                 :key="newsPost"
                 :newsPost="newsPost"></visual-news-post>
+            <h4
+                class="background-info"
+                v-if="
+                    newsPostCollection !== undefined &&
+                    newsPostCollection.posts.length === 0
+                ">
+                {{ text["empty"] }}
+            </h4>
             <nav-bar selected="news" />
         </ion-content>
     </ion-page>
@@ -30,6 +38,8 @@ import {
     IonRefresherContent,
     IonContent,
     IonHeader,
+    IonToolbar,
+    IonTitle,
 } from "@ionic/vue";
 import NavBar from "@/components/NavBar.vue";
 import VisualNewsPost from "@/components/VisualNewsPost.vue";
@@ -44,10 +54,13 @@ export default defineComponent({
         IonRefresherContent,
         IonContent,
         IonHeader,
+        IonToolbar,
+        IonTitle,
         NavBar,
         VisualNewsPost,
     },
     data() {
+        // Sample news
         const tmp = new NewsPostCollection([
             new NewsPost(
                 "Lorem ipsum",
@@ -55,9 +68,10 @@ export default defineComponent({
                 "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
             ),
         ]);
+
         this.loadText();
         return {
-            newsPostCollection: tmp, //store.state.newsPostCollection
+            newsPostCollection: store.state.newsPostCollection,
             text: {},
         };
     },
