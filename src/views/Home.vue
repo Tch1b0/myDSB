@@ -1,31 +1,29 @@
 <template>
     <ion-page>
+        <ion-header>
+            <ion-toolbar
+                v-if="
+                    timeTable !== undefined &&
+                    timeTable.findByClassName(settings.className).length === 0
+                ">
+                <ion-title>
+                    {{ text["timetable"] }} - {{ text["empty"] }}
+                </ion-title>
+            </ion-toolbar>
+            <ion-toolbar v-else-if="timeTable !== undefined">
+                <ion-title>
+                    {{ text["timetable"] }} -
+                    {{ timeTable.findByClassName(settings.className).length }}
+                    {{ text["entries"] }}
+                </ion-title>
+            </ion-toolbar>
+        </ion-header>
         <ion-content>
             <!--eslint-disable-next-line-->
             <ion-refresher @ionRefresh="refresh($event)" slot="fixed">
                 <ion-refresher-content></ion-refresher-content>
             </ion-refresher>
-            <div
-                v-if="
-                    timeTable !== undefined &&
-                    timeTable.findByClassName(settings.className).length === 0
-                ">
-                <ion-toolbar>
-                    <ion-title>
-                        {{ text["timetable"] }} - {{ text["empty"] }}
-                    </ion-title>
-                </ion-toolbar>
-            </div>
-            <div v-else-if="timeTable !== undefined">
-                <ion-toolbar>
-                    <ion-title>
-                        {{ text["timetable"] }} -
-                        {{
-                            timeTable.findByClassName(settings.className).length
-                        }}
-                        {{ text["entries"] }}
-                    </ion-title>
-                </ion-toolbar>
+            <div v-if="timeTable !== undefined">
                 <div
                     v-for="(entry, index) of timeTable.findByClassName(
                         settings.className,
@@ -48,6 +46,7 @@ import {
     IonRefresherContent,
     IonToolbar,
     IonTitle,
+    IonHeader,
 } from "@ionic/vue";
 import NavBar from "@/components/NavBar.vue";
 import store from "@/store";
@@ -64,6 +63,7 @@ export default defineComponent({
         IonRefresherContent,
         IonToolbar,
         IonTitle,
+        IonHeader,
     },
     data() {
         store.dispatch("update");

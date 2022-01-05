@@ -1,11 +1,13 @@
 <template>
     <ion-page>
-        <ion-content>
+        <ion-header>
             <ion-toolbar>
                 <ion-title>
                     {{ text["settings"] }}
                 </ion-title>
             </ion-toolbar>
+        </ion-header>
+        <ion-content>
             <ion-grid>
                 <ion-row justify-content-center center>
                     <ion-col>
@@ -84,6 +86,7 @@ import {
     IonSelectOption,
     IonTitle,
     IonToolbar,
+    IonHeader,
 } from "@ionic/vue";
 import NavBar from "@/components/NavBar.vue";
 import { Settings } from "@/utility/account";
@@ -122,6 +125,7 @@ export default defineComponent<Data, Methods>({
         IonSelectOption,
         IonTitle,
         IonToolbar,
+        IonHeader,
     },
     data() {
         this.loadText();

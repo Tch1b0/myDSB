@@ -1,15 +1,17 @@
 <template>
     <ion-page>
+        <ion-header
+            ><ion-toolbar>
+                <ion-title>
+                    {{ text["documents"] }}
+                </ion-title>
+            </ion-toolbar>
+        </ion-header>
         <ion-content>
             <!--eslint-disable-next-line-->
             <ion-refresher @ionRefresh="refresh($event)" slot="fixed">
                 <ion-refresher-content></ion-refresher-content>
             </ion-refresher>
-            <ion-toolbar>
-                <ion-title>
-                    {{ text["documents"] }}
-                </ion-title>
-            </ion-toolbar>
             <visual-doc-post
                 v-for="docPost in documentPostCollection.posts"
                 :key="docPost"
@@ -27,6 +29,7 @@ import {
     IonRefresher,
     IonRefresherContent,
     IonContent,
+    IonHeader,
 } from "@ionic/vue";
 import NavBar from "@/components/NavBar.vue";
 import VisualDocPost from "@/components/VisualDocPost.vue";
@@ -40,6 +43,7 @@ export default defineComponent({
         IonRefresher,
         IonRefresherContent,
         IonContent,
+        IonHeader,
         NavBar,
         VisualDocPost,
     },

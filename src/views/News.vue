@@ -1,15 +1,17 @@
 <template>
     <ion-page>
-        <ion-content>
-            <!--eslint-disable-next-line-->
-            <ion-refresher @ionRefresh="refresh($event)" slot="fixed">
-                <ion-refresher-content></ion-refresher-content>
-            </ion-refresher>
+        <ion-header>
             <ion-toolbar>
                 <ion-title>
                     {{ text["news"] }}
                 </ion-title>
             </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <!--eslint-disable-next-line-->
+            <ion-refresher @ionRefresh="refresh($event)" slot="fixed">
+                <ion-refresher-content></ion-refresher-content>
+            </ion-refresher>
             <visual-news-post
                 v-for="newsPost in newsPostCollection.posts"
                 :key="newsPost"
@@ -27,6 +29,7 @@ import {
     IonRefresher,
     IonRefresherContent,
     IonContent,
+    IonHeader,
 } from "@ionic/vue";
 import NavBar from "@/components/NavBar.vue";
 import VisualNewsPost from "@/components/VisualNewsPost.vue";
@@ -40,6 +43,7 @@ export default defineComponent({
         IonRefresher,
         IonRefresherContent,
         IonContent,
+        IonHeader,
         NavBar,
         VisualNewsPost,
     },
