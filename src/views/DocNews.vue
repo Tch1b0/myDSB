@@ -42,7 +42,7 @@ export default defineComponent({
         const tmp = new DocumentPostCollection([
             new DocumentPost(
                 "ID",
-                "Irgndwelche Neuigkeiten",
+                "Lorem ipsum",
                 new Date(),
                 "someURL",
                 "somePreviewURL",
