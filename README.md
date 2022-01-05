@@ -2,7 +2,7 @@
 
 ![badge](https://img.shields.io/github/license/Tch1b0/myDSB?style=flat) ![badge](https://img.shields.io/github/issues/Tch1b0/myDSB?style=flat) ![badge](https://img.shields.io/github/workflow/status/tch1b0/myDSB/e2e-test?style=flat&label=tests)
 
-_The alternative you didn't ask for, but the one you deserve._
+**_The alternative you didn't ask for, but the one you deserve._**
 
 ## Philosophy
 
