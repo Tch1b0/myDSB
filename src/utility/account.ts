@@ -5,6 +5,9 @@ export interface Settings {
     darkMode: boolean;
 }
 
+/**
+ * A myDSB account, which stores User information locally
+ */
 export class Account {
     constructor(
         public username?: string,
@@ -18,6 +21,9 @@ export class Account {
         },
     ) {}
 
+    /**
+     * @returns a new Object, ready to be stringified
+     */
     public toJSON() {
         return {
             username: this.username,
@@ -27,6 +33,11 @@ export class Account {
         };
     }
 
+    /**
+     * Create a new Account object from json
+     * @param data The json data
+     * @returns a new Account object
+     */
     public static fromJSON(data: any) {
         return new Account(
             data["username"],
