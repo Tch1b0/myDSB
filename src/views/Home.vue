@@ -19,7 +19,10 @@
             <div v-else-if="timeTable !== undefined">
                 <ion-toolbar>
                     <ion-title>
-                        {{ text["timetable"] }} - {{ timeTable.entries.length }}
+                        {{ text["timetable"] }} -
+                        {{
+                            timeTable.findByClassName(settings.className).length
+                        }}
                         {{ text["entries"] }}
                     </ion-title>
                 </ion-toolbar>
