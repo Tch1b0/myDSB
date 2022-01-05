@@ -21,7 +21,7 @@ $ npm run serve
 
 ### Start cypress in a new window
 
-Remember to run the local server parallel
+Remember to run the local server parallel.
 
 ```
 $ npm run test:gui
@@ -47,11 +47,19 @@ $ npm run build:ios
 
 ### Adapt icon and splash screen
 
-This should be executed right after building
+This should be executed right after building.
 
 ```
 $ npm run resources
 ```
+
+## Contributing
+
+If you want to contribute, make sure to read [CONTRIBUTING.md](./CONTRIBUTING.md) first.
+
+## License
+
+Licensed under the [GNU-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
 
 ## Built with
 
