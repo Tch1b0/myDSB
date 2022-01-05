@@ -6,10 +6,7 @@
 
 ## Screenshots
 
-<img src="./demo/myDSB_login.jpg" width="200">
-<img src="./demo/myDSB_timetable.jpg" width="200">
-<img src="./demo/myDSB_news.jpg" width="200">
-<img src="./demo/myDSB_settings.jpg" width="200">
+<img src="./demo/myDSB_login.jpg" width="200"> <img src="./demo/myDSB_timetable.jpg" width="200"> <img src="./demo/myDSB_news.jpg" width="200"> <img src="./demo/myDSB_settings.jpg" width="200">
 
 ## Philosophy
 
