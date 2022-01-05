@@ -12,9 +12,7 @@
                         <ion-card>
                             <ion-item>
                                 <ion-label>{{ text["class-name"] }}:</ion-label>
-                                <ion-input
-                                    type="text"
-                                    v-model="className"></ion-input>
+                                <ion-input type="text" v-model="className" />
                             </ion-item>
 
                             <ion-item>
@@ -84,6 +82,8 @@ import {
     IonToggle,
     IonSelect,
     IonSelectOption,
+    IonTitle,
+    IonToolbar,
 } from "@ionic/vue";
 import NavBar from "@/components/NavBar.vue";
 import { Settings } from "@/utility/account";
@@ -120,6 +120,8 @@ export default defineComponent<Data, Methods>({
         IonToggle,
         IonSelect,
         IonSelectOption,
+        IonTitle,
+        IonToolbar,
     },
     data() {
         this.loadText();
