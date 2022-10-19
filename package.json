@@ -26,6 +26,7 @@
         "@capacitor/keyboard": "1.2.2",
         "@capacitor/local-notifications": "1.1.0",
         "@capacitor/status-bar": "1.0.8",
+        "@ionic/cli": "^6.20.3",
         "@ionic/storage": "3.0.6",
         "@ionic/vue": "6.0.1",
         "@ionic/vue-router": "6.0.11",
@@ -36,9 +37,7 @@
         "dsbmobile": "^1.1.7",
         "vue": "3.2.28",
         "vue-router": "4.0.12",
-        "vuex": "4.0.2"
-    },
-    "devDependencies": {
+        "vuex": "4.0.2",
         "@capacitor/cli": "3.4.1",
         "@types/chai": "4.3.0",
         "@types/cypress": "^1.1.3",

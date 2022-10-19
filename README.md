@@ -31,12 +31,6 @@ Remember to run the local server parallel.
 $ npm run test:gui
 ```
 
-### Run eslint
-
-```
-$ npm run lint
-```
-
 ### Build for android
 
 ```
