@@ -14,7 +14,7 @@
             </ion-refresher>
             <visual-news-post
                 v-for="newsPost in newsPostCollection.posts"
-                :key="newsPost"
+                :key="newsPost.title"
                 :newsPost="newsPost"></visual-news-post>
             <h4
                 class="background-info"
