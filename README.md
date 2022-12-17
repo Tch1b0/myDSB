@@ -1,6 +1,6 @@
 # myDSB
 
-![badge](https://img.shields.io/github/license/Tch1b0/myDSB) ![badge](https://img.shields.io/github/issues/Tch1b0/myDSB?style=flat) ![badge](https://img.shields.io/github/workflow/status/tch1b0/myDSB/unit%20test?label=unit%20tests) ![badge](https://img.shields.io/github/workflow/status/tch1b0/myDSB/e2e%20test?label=e2e%20tests)
+![badge](https://img.shields.io/github/license/Tch1b0/myDSB) ![badge](https://img.shields.io/github/issues/Tch1b0/myDSB?style=flat) ![badge](https://img.shields.io/github/actions/workflow/status/tch1b0/myDSB/unit-test.yml?branch=main&label=unit%20tests) ![badge](https://img.shields.io/github/actions/workflow/status/tch1b0/myDSB/e2e-test.yml?branch=main&label=e2e%20tests)
 
 An alternative for the DSBmobile app, for both Android and iOS 
 
