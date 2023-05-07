@@ -28,7 +28,7 @@
                     v-for="(entry, index) of timeTable.findByClassName(
                         settings.className,
                     )"
-                    :key="(entry, index)">
+                    :key="index">
                     <visual-entry :entry="entry" :delay="index"></visual-entry>
                 </div>
             </div>

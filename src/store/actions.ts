@@ -18,9 +18,9 @@ export const actions = {
         // the token
         if (account.token !== undefined) {
             dsb = new Dsbmobile({
+                token: account.token,
                 baseURL: apiURL,
                 resourceBaseURL: resURL,
-                token: account.token,
             });
         }
 
@@ -35,7 +35,8 @@ export const actions = {
                 baseURL: apiURL,
                 resourceApiURL: resURL,
             });
-            await dsb.fetchToken();
+            await dsb.fetchToken()
+            dsb.resourceBaseURL = resURL;
         }
 
         // else, show an error when loading
